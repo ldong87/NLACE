@@ -1,0 +1,16 @@
+
+create_input_ref_2D.m and create_input_ref_3D.m are matlab scripts that generate input files for NLACE.
+
+They use pre-formatted data (a *.mat file) as described in the readme/README file in
+~jfdord/database2D and ~jfdord/database3D folders.
+The "london_data" is in folder /bigtmp/jfdord/Backup/london_data/inversions/ (the scripts for the irregular grids are there as well)
+
+The scripts are organized as follows:
+- at the beginning: choose the dataset and options needed.
+- then select the data and build the topology
+- then print the beginning of the input file (all variable parameters)
+- add the coordinates of the vertices, then the topology
+- proceed with the BCs (some changes can be made there)
+- proceed with the datn section
+- proceed with the measured data
+

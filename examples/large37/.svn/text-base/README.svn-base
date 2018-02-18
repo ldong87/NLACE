@@ -1,0 +1,2 @@
+-Measured data from input file obtained obtained by solving forward problem with elem305 (incompressible element) and adding 3% white Gaussian noise. (see Sevan's folder /users/goenes/inverse_run_tests/April2010/large_inclusion_no_force_information/Noise/3%noise/alpha1.0e-11/)
+-Checked with finite difference but not reported here.

@@ -1,0 +1,1085 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Sun Jun 25 17:01:16 2017
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of elements ....................           7
+ number of points    ...................           8
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           3
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........           4
+ tolerance for Newton iteration.........      1.0000E-12
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ prefix for the output file ............   inverse.out
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve an inverse problem: problemType=           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........         200
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          10
+ maximum number of fields to optimize...           5
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      0.0000E+00
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................           1
+ reg. param.  .......................      1.0000E-10
+ reg. type...........................           3
+ extra param. for TVD..................      1.0000E-02
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................           4
+ reg. param.  .......................      1.0000E-10
+ reg. type...........................           3
+ extra param. for TVD..................      1.0000E-02
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:2.0000E-03s (All core(s):0.0000E+00s)
+ ## Total elapsed time on the master core:        2.0000E-03s (All core(s):4.0000E-03s)
+  
+  ++ Running the inverse code (optimization driver)
+  ++ L-BFGS-B selected
+  
+  ++ iteration X0: loading the material with  the initial guess of the state vector
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 0.0000E+00, increment(L2)= 0.0000E+00
+    -- Primal problem done on master core in       4.8000E-02s (All core(s) 4.4002E-02s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=2.4816E+02 and ||g||_2=2.8525E+02
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:5.5000E-02s (All core(s):5.2003E-02s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4592E+02, increment(L2) = 6.9146E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 9.2329E+01, increment(L2) = 1.3933E+00
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.4747E+01, increment(L2) = 3.8256E-01
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 5.5999E-01, increment(L2) = 1.4357E-02
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 8.3432E-04, increment(L2) = 2.1788E-05
+       Loading step (mat):  1, Newton it.:  6, residual(L2) = 1.8953E-09, increment(L2) = 4.9243E-11
+       Loading step (mat):  1, Newton it.:  7, residual(L2) = 8.3415E-14, increment(L2) = 2.4128E-15
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.2000E-02s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0010E-03s)
+   -- Objective function and gradient created, f=2.5143E+02 and ||g||_2=1.5421E+02
+  ++ Elapsed time for this iteration on the master core:2.0000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 8.3857E+01, increment(L2) = 2.1619E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.2108E+01, increment(L2) = 4.3922E-01
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 4.1622E-01, increment(L2) = 1.5416E-02
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 4.9127E-04, increment(L2) = 1.8389E-05
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 6.9392E-10, increment(L2) = 2.5853E-11
+       Loading step (mat):  1, Newton it.:  6, residual(L2) = 2.7962E-14, increment(L2) = 1.2174E-15
+    -- Primal problem done on master core in       1.3000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.5430E+00 and ||g||_2=5.6825E+00
+  ++ Elapsed time for this iteration on the master core:1.9000E-02s (All core(s):2.0001E-02s)
+   
+  ++ iteration            1
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 8.7785E-01, increment(L2) = 3.7259E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.0295E-03, increment(L2) = 8.6269E-05
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.5307E-08, increment(L2) = 7.2983E-10
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.2785E-13, increment(L2) = 4.0755E-15
+    -- Primal problem done on master core in       8.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0010E-03s)
+   -- Objective function and gradient created, f=1.3953E+00 and ||g||_2=3.1715E+00
+  ++ Elapsed time for this iteration on the master core:1.3000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration            2
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.5792E-01, increment(L2) = 4.3736E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.5101E-03, increment(L2) = 1.2280E-04
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 4.2109E-08, increment(L2) = 1.8356E-09
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 9.6663E-14, increment(L2) = 2.9208E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 1.2000E-02s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0010E-03s)
+   -- Objective function and gradient created, f=1.2784E+00 and ||g||_2=2.3651E+00
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration            3
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.0156E-01, increment(L2) = 4.2380E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.7465E-03, increment(L2) = 1.2041E-04
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 3.6027E-08, increment(L2) = 1.3674E-09
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.5074E-13, increment(L2) = 6.8212E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.1869E+00 and ||g||_2=2.4737E+00
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):1.2000E-02s)
+   
+  ++ iteration            4
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.2004E+00, increment(L2) = 6.0379E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 6.4136E-03, increment(L2) = 2.9597E-04
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 2.7326E-07, increment(L2) = 1.1570E-08
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 8.7794E-14, increment(L2) = 2.5616E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 8.0000E-03s)
+   -- Objective function and gradient created, f=1.1055E+00 and ||g||_2=9.9384E-01
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration            5
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.4243E-01, increment(L2) = 1.2152E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.9741E-04, increment(L2) = 1.1961E-05
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 3.1947E-10, increment(L2) = 1.4353E-11
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.0623E-13, increment(L2) = 4.1887E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.1000E+00 and ||g||_2=1.6395E-01
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration            6
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.4441E-02, increment(L2) = 1.4871E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.5352E-06, increment(L2) = 1.4713E-07
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.5135E-13, increment(L2) = 4.3417E-15
+    -- Primal problem done on master core in       6.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0998E+00 and ||g||_2=8.9518E-02
+  ++ Elapsed time for this iteration on the master core:1.1000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration            7
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.2202E-02, increment(L2) = 1.0560E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.0669E-06, increment(L2) = 8.6865E-08
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.1521E-13, increment(L2) = 4.1017E-15
+    -- Primal problem done on master core in       7.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0010E-03s)
+   -- Objective function and gradient created, f=1.0995E+00 and ||g||_2=1.3357E-01
+  ++ Elapsed time for this iteration on the master core:1.2000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration            8
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.8768E-02, increment(L2) = 2.6572E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.4411E-05, increment(L2) = 7.1504E-07
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.1528E-12, increment(L2) = 4.5311E-14
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.1245E-13, increment(L2) = 6.3063E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0989E+00 and ||g||_2=2.7625E-01
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):1.2000E-02s)
+   
+  ++ iteration            9
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 4.0010E-03s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4667E-01, increment(L2) = 5.5367E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.2566E-05, increment(L2) = 3.3530E-06
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 3.1683E-11, increment(L2) = 1.1992E-12
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.1348E-13, increment(L2) = 5.6983E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0977E+00 and ||g||_2=4.2341E-01
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           10
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3340E-01, increment(L2) = 9.8735E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.3636E-04, increment(L2) = 1.0373E-05
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 3.0339E-10, increment(L2) = 1.1286E-11
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.0840E-13, increment(L2) = 6.0592E-15
+    -- Primal problem done on master core in       8.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0959E+00 and ||g||_2=4.3673E-01
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:1.6000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           11
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.1094E-01, increment(L2) = 1.0405E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.2246E-04, increment(L2) = 9.7751E-06
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 2.8389E-10, increment(L2) = 1.1349E-11
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.1419E-13, increment(L2) = 5.7155E-15
+    -- Primal problem done on master core in       9.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=2.9499E-02
+  ++ Elapsed time for this iteration on the master core:1.4000E-02s (All core(s):8.0010E-03s)
+   
+  ++ iteration           12
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.0272E-03, increment(L2) = 3.2281E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.9560E-07, increment(L2) = 7.0200E-09
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 8.6280E-14, increment(L2) = 4.9541E-15
+    -- Primal problem done on master core in       6.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0010E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=1.8211E-03
+  ++ Elapsed time for this iteration on the master core:1.2000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration           13
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4851E-03, increment(L2) = 5.2174E-05
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 6.0877E-09, increment(L2) = 2.8579E-10
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 9.0101E-14, increment(L2) = 6.2908E-15
+    -- Primal problem done on master core in       6.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=3.4035E-05
+  ++ Elapsed time for this iteration on the master core:1.1000E-02s (All core(s):1.2000E-02s)
+   
+  ++ iteration           14
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.5993E-04, increment(L2) = 6.9720E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.2443E-10, increment(L2) = 5.4817E-12
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.8379E-14, increment(L2) = 4.7870E-15
+    -- Primal problem done on master core in       7.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=1.4174E-05
+  ++ Elapsed time for this iteration on the master core:1.2000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.0112E-05, increment(L2) = 3.9653E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.3268E-11, increment(L2) = 1.3903E-12
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.4117E-14, increment(L2) = 4.3706E-15
+    -- Primal problem done on master core in       7.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=6.6968E-05
+  ++ Elapsed time for this iteration on the master core:1.2000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.0895E-05, increment(L2) = 3.4440E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.5057E-11, increment(L2) = 1.0476E-12
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 8.0667E-14, increment(L2) = 3.2980E-15
+    -- Primal problem done on master core in       6.0000E-03s (All core(s) 8.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0010E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=5.7451E-06
+  ++ Elapsed time for this iteration on the master core:1.1000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration           16
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.0672E-06, increment(L2) = 1.0181E-07
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.0786E-13, increment(L2) = 3.2636E-15
+    -- Primal problem done on master core in       5.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 8.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=1.2425E-07
+  ++ Elapsed time for this iteration on the master core:1.0000E-02s (All core(s):1.2000E-02s)
+   
+  ++ iteration           17
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.0970E-08, increment(L2) = 1.4611E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.4253E-13, increment(L2) = 5.6416E-15
+    -- Primal problem done on master core in       4.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            4.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=4.7012E-10
+  ++ Elapsed time for this iteration on the master core:9.0000E-03s (All core(s):8.0010E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.0487E-10, increment(L2) = 1.9167E-11
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.1878E-14, increment(L2) = 3.1273E-15
+    -- Primal problem done on master core in       4.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=1.0040E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-02s (All core(s):8.0000E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.0489E-10, increment(L2) = 1.9168E-11
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 5.1480E-14, increment(L2) = 3.4557E-15
+    -- Primal problem done on master core in       4.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            4.0000E-03s (All core(s) 8.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=4.7011E-10
+  ++ Elapsed time for this iteration on the master core:1.0000E-02s (All core(s):1.2001E-02s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.7523E-14, increment(L2) = 4.6153E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=4.7022E-10
+  ++ Elapsed time for this iteration on the master core:7.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.1402E-14, increment(L2) = 6.0417E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=4.6988E-10
+  ++ Elapsed time for this iteration on the master core:7.0000E-03s (All core(s):8.0010E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+ elems on node            1 =           1
+ elems on node            2 =           6
+ elems on node            3 =           7
+ elems on node            4 =           8
+ elems on node            5 =           9
+ elems on node            6 =          10
+ elems on node            7 =          15
+ elems on node            8 =          20
+ elems on node            9 =          25
+ elems on node           10 =          27
+ elems on node           11 =          29
+ elems on node           12 =          31
+ elems on node           13 =          33
+ elems on node           14 =          39
+ elems on node           15 =          45
+ elems on node           16 =          51
+ elems on node           17 =          57
+ elems on node           18 =          63
+ elems on node           19 =          69
+ elems on node           20 =          75
+ elems on node           21 =          81
+ elems on node           22 =          83
+ elems on node           23 =          85
+ elems on node           24 =          87
+ elems on node           25 =          89
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.0614E-14, increment(L2) = 4.2072E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            5.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.0945E+00 and ||g||_2=4.6998E-10
+  ++ Elapsed time for this iteration on the master core:8.0000E-03s (All core(s):8.0000E-03s)
+ REL_R_O_F =  -8.11459397150527367E-015 , factr =   1.00000000000000008E-015 , epsmch =   2.22044604925031308E-016 iter =           19
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N   Tit  Tnf  Tnint  Skip  Nact     Projg        F
+    4   19   26     22     0     0   3.035D-10   1.095D+00
+  F =   1.0945444994771147     
+
+CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 2.960E-01 seconds.
+
+ Total User time 3.480E-01 seconds.
+
+ the opt algo has terminated before the NLACE criteria said so ...
+ ---------------------
+ Post processor format: paraview
+ ---------------------

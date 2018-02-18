@@ -1,0 +1,33 @@
+ #This file helps checking about the convergence of the optimization algorithm
+ #    by printing infos related to the values of the objective function
+ #- every line describes an iteration of the optimization algorithm,
+ #- on every line there are x real numbers where x equals 3 times the number of
+ #    measured fields used,
+ #- the first 3 numbers on a line are the dataMatch term, the regularization and
+ #    their sum (the objective function value) for the first measured field used,
+ #- numbers at positions 4 to 6 detail the same infos for the second field used,
+ #- etc
+ #note by JFD: gnuplot is convenient to print a column
+ #             plot "*.out.cvg" u 3
+ #             replot "*.out.cvg" u 6
+  5.70701E-02  4.74025E-07  5.70706E-02
+  4.67019E-02  9.81974E-06  4.67117E-02
+  3.34492E-02  2.83005E-05  3.34775E-02
+  2.90635E-02  4.28310E-05  2.91063E-02
+  2.08300E-02  8.04269E-05  2.09104E-02
+  8.81006E-03  1.92436E-04  9.00249E-03
+  4.64847E-03  2.67858E-04  4.91633E-03
+  3.72478E-03  2.91705E-04  4.01649E-03
+  2.95342E-03  3.08875E-04  3.26229E-03
+  1.81077E-03  3.65850E-04  2.17662E-03
+  1.67792E-03  3.65709E-04  2.04363E-03
+  1.60851E-03  3.66707E-04  1.97522E-03
+  1.24405E-03  3.94561E-04  1.63861E-03
+  1.06730E-03  4.05815E-04  1.47312E-03
+  9.74458E-04  4.06765E-04  1.38122E-03
+  9.23365E-04  4.07465E-04  1.33083E-03
+  8.12659E-04  4.13547E-04  1.22621E-03
+  7.64431E-04  4.14613E-04  1.17904E-03
+  6.42322E-04  4.23114E-04  1.06544E-03
+  5.56180E-04  4.37557E-04  9.93736E-04
+  5.42301E-04  4.38574E-04  9.80875E-04

@@ -1,0 +1,787 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Fri Oct 10 12:59:41 2014
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of elements ....................          48
+ number of points    ...................          27
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           9
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........           9
+ tolerance for Newton iteration.........      1.0000E-12
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ prefix for the output file ............   inverse.out
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve an inverse problem: problemType=           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........        2000
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          10
+ maximum number of fields to optimize...           5
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      0.0000E+00
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          13
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          11
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          11
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          15
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          13
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          17
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          17
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          15
+ reg. param.  .......................      1.0000E+02
+ reg. type...........................           2
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:1.0000E-02s (All core(s):8.0010E-03s)
+ ## Total elapsed time on the master core:        1.0000E-02s (All core(s):2.0001E-02s)
+  
+  ++ Running the inverse code (optimization driver)
+  ++ L-BFGS-B selected
+  
+  ++ iteration X0: loading the material with  the initial guess of the state vector
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=          27
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 0.0000E+00, increment(L2)= 0.0000E+00
+    -- Primal problem done on master core in       7.2000E-01s (All core(s) 7.2004E-01s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.5210E+02 and ||g||_2=2.0143E+02
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:7.2800E-01s (All core(s):7.2404E-01s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  -2.5000000000000000       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  -2.5000000000000000       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.8644E+01, increment(L2) = 1.4378E+01
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.9322E+01, increment(L2) = 7.1888E+00
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.9661E+01, increment(L2) = 3.5944E+00
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 1.7972E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 5.6607E-01, increment(L2) = 1.2300E-01
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 4.3535E-03, increment(L2) = 3.3275E-04
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 2.9504E-08, increment(L2) = 3.2533E-09
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 7.2075E-14, increment(L2) = 4.7118E-15
+       Loading step (mat):  2, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 1.9842E+00
+       Loading step (mat):  2, Newton it.:  2, residual(L2) = 7.7447E-01, increment(L2) = 1.3651E-01
+       Loading step (mat):  2, Newton it.:  3, residual(L2) = 6.1714E-03, increment(L2) = 3.1855E-04
+       Loading step (mat):  2, Newton it.:  4, residual(L2) = 6.8283E-08, increment(L2) = 3.7886E-09
+       Loading step (mat):  2, Newton it.:  5, residual(L2) = 9.0724E-14, increment(L2) = 7.0834E-15
+       Loading step (mat):  3, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 2.1967E+00
+       Loading step (mat):  3, Newton it.:  2, residual(L2) = 1.1085E+00, increment(L2) = 1.5712E-01
+       Loading step (mat):  3, Newton it.:  3, residual(L2) = 9.6406E-03, increment(L2) = 7.6434E-04
+       Loading step (mat):  3, Newton it.:  4, residual(L2) = 2.7759E-07, increment(L2) = 1.8472E-08
+       Loading step (mat):  3, Newton it.:  5, residual(L2) = 7.7097E-14, increment(L2) = 6.5198E-15
+       Loading step (mat):  4, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 2.4441E+00
+       Loading step (mat):  4, Newton it.:  2, residual(L2) = 1.6754E+00, increment(L2) = 2.0485E-01
+       Loading step (mat):  4, Newton it.:  3, residual(L2) = 1.8509E-02, increment(L2) = 2.1657E-03
+       Loading step (mat):  4, Newton it.:  4, residual(L2) = 1.8936E-06, increment(L2) = 1.3680E-07
+       Loading step (mat):  4, Newton it.:  5, residual(L2) = 1.0745E-13, increment(L2) = 1.1116E-14
+       Loading step (mat):  5, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 2.7745E+00
+       Loading step (mat):  5, Newton it.:  2, residual(L2) = 2.7572E+00, increment(L2) = 3.3181E-01
+       Loading step (mat):  5, Newton it.:  3, residual(L2) = 4.9522E-02, increment(L2) = 6.6220E-03
+       Loading step (mat):  5, Newton it.:  4, residual(L2) = 1.9384E-05, increment(L2) = 1.6925E-06
+       Loading step (mat):  5, Newton it.:  5, residual(L2) = 1.9185E-12, increment(L2) = 3.1690E-13
+       Loading step (mat):  5, Newton it.:  6, residual(L2) = 1.0629E-13, increment(L2) = 7.8156E-15
+       Loading step (mat):  6, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 3.3577E+00
+       Loading step (mat):  6, Newton it.:  2, residual(L2) = 5.2716E+00, increment(L2) = 6.9810E-01
+       Loading step (mat):  6, Newton it.:  3, residual(L2) = 2.1032E-01, increment(L2) = 2.5771E-02
+       Loading step (mat):  6, Newton it.:  4, residual(L2) = 3.2199E-04, increment(L2) = 3.2849E-05
+       Loading step (mat):  6, Newton it.:  5, residual(L2) = 7.8552E-10, increment(L2) = 1.4448E-10
+       Loading step (mat):  6, Newton it.:  6, residual(L2) = 1.2392E-13, increment(L2) = 9.5424E-15
+       Loading step (mat):  7, Newton it.:  1, residual(L2) = 9.8305E+00, increment(L2) = 4.7470E+00
+       Loading step (mat):  7, Newton it.:  2, residual(L2) = 1.2911E+01, increment(L2) = 1.1331E+00
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  7, Newton it.:  1, residual(L2) = 4.9153E+00, increment(L2) = 2.3735E+00
+       Loading step (mat):  7, Newton it.:  2, residual(L2) = 3.0324E+00, increment(L2) = 3.1794E-01
+       Loading step (mat):  7, Newton it.:  3, residual(L2) = 3.9342E-02, increment(L2) = 5.4070E-03
+       Loading step (mat):  7, Newton it.:  4, residual(L2) = 1.5410E-05, increment(L2) = 2.5938E-06
+       Loading step (mat):  7, Newton it.:  5, residual(L2) = 4.8857E-12, increment(L2) = 5.1158E-13
+       Loading step (mat):  7, Newton it.:  6, residual(L2) = 1.1705E-13, increment(L2) = 8.7467E-15
+       Loading step (mat):  8, Newton it.:  1, residual(L2) = 4.9153E+00, increment(L2) = 2.8996E+00
+       Loading step (mat):  8, Newton it.:  2, residual(L2) = 4.7755E+00, increment(L2) = 2.2727E-01
+       Loading step (mat):  8, Newton it.:  3, residual(L2) = 6.0417E-02, increment(L2) = 2.1573E-03
+       Loading step (mat):  8, Newton it.:  4, residual(L2) = 1.2681E-05, increment(L2) = 8.6297E-07
+       Loading step (mat):  8, Newton it.:  5, residual(L2) = 1.0559E-12, increment(L2) = 1.6943E-13
+       Loading step (mat):  8, Newton it.:  6, residual(L2) = 1.4597E-13, increment(L2) = 1.6366E-14
+       Loading step (mat):  9, Newton it.:  1, residual(L2) = 4.9153E+00, increment(L2) = 3.0004E+00
+       Loading step (mat):  9, Newton it.:  2, residual(L2) = 5.3403E+00, increment(L2) = 2.4140E-01
+       Loading step (mat):  9, Newton it.:  3, residual(L2) = 8.2062E-02, increment(L2) = 2.0081E-02
+       Loading step (mat):  9, Newton it.:  4, residual(L2) = 3.0074E-04, increment(L2) = 1.7187E-05
+       Loading step (mat):  9, Newton it.:  5, residual(L2) = 6.7495E-10, increment(L2) = 1.2644E-10
+       Loading step (mat):  9, Newton it.:  6, residual(L2) = 1.9524E-13, increment(L2) = 2.4756E-14
+       Loading step (mat): 10, Newton it.:  1, residual(L2) = 4.9153E+00, increment(L2) = 2.5751E+00
+       Loading step (mat): 10, Newton it.:  2, residual(L2) = 4.0560E+00, increment(L2) = 2.4849E-01
+       Loading step (mat): 10, Newton it.:  3, residual(L2) = 8.3416E-02, increment(L2) = 1.5431E-02
+       Loading step (mat): 10, Newton it.:  4, residual(L2) = 2.4248E-04, increment(L2) = 2.2858E-05
+       Loading step (mat): 10, Newton it.:  5, residual(L2) = 9.5318E-10, increment(L2) = 1.1971E-10
+       Loading step (mat): 10, Newton it.:  6, residual(L2) = 1.9084E-13, increment(L2) = 8.2249E-15
+    -- Primal problem done on master core in       4.6100E-01s (All core(s) 4.6003E-01s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=7.4702E+03 and ||g||_2=3.2454E+03
+  ++ Elapsed time for this iteration on the master core:4.6300E-01s (All core(s):4.6003E-01s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)= -0.21011994848509946       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)= -0.21011994848509946       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.21011994848509946       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 4.0000E-03s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.2034E+01, increment(L2) = 3.1064E+01
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.6017E+01, increment(L2) = 1.5532E+01
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.8009E+01, increment(L2) = 7.7659E+00
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.0043E+00, increment(L2) = 3.8830E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.4934E+00, increment(L2) = 7.4025E-01
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 4.1094E-01, increment(L2) = 1.1400E-01
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 9.3343E-03, increment(L2) = 1.2819E-03
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 1.5688E-06, increment(L2) = 3.5889E-07
+       Loading step (mat):  1, Newton it.:  6, residual(L2) = 2.0520E-13, increment(L2) = 4.9344E-14
+       Loading step (mat):  2, Newton it.:  1, residual(L2) = 9.0043E+00, increment(L2) = 5.4049E+00
+       Loading step (mat):  2, Newton it.:  2, residual(L2) = 1.3684E+01, increment(L2) = 6.3016E-01
+      Warning: Reducing the step length to allow convergence
+       Loading step (mat):  2, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 2.7024E+00
+       Loading step (mat):  2, Newton it.:  2, residual(L2) = 3.7097E+00, increment(L2) = 1.6728E-01
+       Loading step (mat):  2, Newton it.:  3, residual(L2) = 3.4959E-02, increment(L2) = 7.8805E-03
+       Loading step (mat):  2, Newton it.:  4, residual(L2) = 3.1008E-05, increment(L2) = 7.5594E-06
+       Loading step (mat):  2, Newton it.:  5, residual(L2) = 2.3758E-11, increment(L2) = 1.3266E-12
+       Loading step (mat):  2, Newton it.:  6, residual(L2) = 1.6889E-13, increment(L2) = 2.3071E-14
+       Loading step (mat):  3, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 2.7396E+00
+       Loading step (mat):  3, Newton it.:  2, residual(L2) = 3.7347E+00, increment(L2) = 2.4290E-01
+       Loading step (mat):  3, Newton it.:  3, residual(L2) = 4.4100E-02, increment(L2) = 4.6316E-03
+       Loading step (mat):  3, Newton it.:  4, residual(L2) = 1.2096E-05, increment(L2) = 6.1346E-06
+       Loading step (mat):  3, Newton it.:  5, residual(L2) = 2.1215E-11, increment(L2) = 1.0234E-12
+       Loading step (mat):  3, Newton it.:  6, residual(L2) = 1.2145E-13, increment(L2) = 1.5021E-14
+       Loading step (mat):  4, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 2.3397E+00
+       Loading step (mat):  4, Newton it.:  2, residual(L2) = 2.6461E+00, increment(L2) = 2.5274E-01
+       Loading step (mat):  4, Newton it.:  3, residual(L2) = 2.6117E-02, increment(L2) = 5.1385E-03
+       Loading step (mat):  4, Newton it.:  4, residual(L2) = 1.3903E-05, increment(L2) = 1.9183E-06
+       Loading step (mat):  4, Newton it.:  5, residual(L2) = 2.3324E-12, increment(L2) = 3.2738E-13
+       Loading step (mat):  4, Newton it.:  6, residual(L2) = 9.6633E-14, increment(L2) = 8.8076E-15
+       Loading step (mat):  5, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.9267E+00
+       Loading step (mat):  5, Newton it.:  2, residual(L2) = 1.6951E+00, increment(L2) = 1.7926E-01
+       Loading step (mat):  5, Newton it.:  3, residual(L2) = 1.2584E-02, increment(L2) = 2.3550E-03
+       Loading step (mat):  5, Newton it.:  4, residual(L2) = 2.7185E-06, increment(L2) = 2.6184E-07
+       Loading step (mat):  5, Newton it.:  5, residual(L2) = 1.1584E-13, increment(L2) = 8.3980E-15
+       Loading step (mat):  6, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.6470E+00
+       Loading step (mat):  6, Newton it.:  2, residual(L2) = 1.1401E+00, increment(L2) = 1.2095E-01
+       Loading step (mat):  6, Newton it.:  3, residual(L2) = 5.8939E-03, increment(L2) = 1.0188E-03
+       Loading step (mat):  6, Newton it.:  4, residual(L2) = 4.8270E-07, increment(L2) = 4.5915E-08
+       Loading step (mat):  6, Newton it.:  5, residual(L2) = 9.7048E-14, increment(L2) = 7.5410E-15
+       Loading step (mat):  7, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.4651E+00
+       Loading step (mat):  7, Newton it.:  2, residual(L2) = 8.1862E-01, increment(L2) = 8.5161E-02
+       Loading step (mat):  7, Newton it.:  3, residual(L2) = 3.0175E-03, increment(L2) = 4.9094E-04
+       Loading step (mat):  7, Newton it.:  4, residual(L2) = 1.0570E-07, increment(L2) = 1.0178E-08
+       Loading step (mat):  7, Newton it.:  5, residual(L2) = 8.7645E-14, increment(L2) = 1.0693E-14
+       Loading step (mat):  8, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.3404E+00
+       Loading step (mat):  8, Newton it.:  2, residual(L2) = 6.1887E-01, increment(L2) = 6.3629E-02
+       Loading step (mat):  8, Newton it.:  3, residual(L2) = 1.7227E-03, increment(L2) = 2.6566E-04
+       Loading step (mat):  8, Newton it.:  4, residual(L2) = 2.9041E-08, increment(L2) = 2.7257E-09
+       Loading step (mat):  8, Newton it.:  5, residual(L2) = 1.0335E-13, increment(L2) = 9.3158E-15
+       Loading step (mat):  9, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.2485E+00
+       Loading step (mat):  9, Newton it.:  2, residual(L2) = 4.8564E-01, increment(L2) = 5.0368E-02
+       Loading step (mat):  9, Newton it.:  3, residual(L2) = 1.0845E-03, increment(L2) = 1.5684E-04
+       Loading step (mat):  9, Newton it.:  4, residual(L2) = 9.5645E-09, increment(L2) = 8.3404E-10
+       Loading step (mat):  9, Newton it.:  5, residual(L2) = 8.8430E-14, increment(L2) = 3.8553E-15
+       Loading step (mat): 10, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.1758E+00
+       Loading step (mat): 10, Newton it.:  2, residual(L2) = 3.9144E-01, increment(L2) = 4.1994E-02
+       Loading step (mat): 10, Newton it.:  3, residual(L2) = 7.4022E-04, increment(L2) = 9.7538E-05
+       Loading step (mat): 10, Newton it.:  4, residual(L2) = 3.5700E-09, increment(L2) = 2.7577E-10
+       Loading step (mat): 10, Newton it.:  5, residual(L2) = 9.0924E-14, increment(L2) = 5.8985E-15
+       Loading step (mat): 11, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.1146E+00
+       Loading step (mat): 11, Newton it.:  2, residual(L2) = 3.2169E-01, increment(L2) = 3.6609E-02
+       Loading step (mat): 11, Newton it.:  3, residual(L2) = 5.3945E-04, increment(L2) = 6.1833E-05
+       Loading step (mat): 11, Newton it.:  4, residual(L2) = 1.4374E-09, increment(L2) = 9.5360E-11
+       Loading step (mat): 11, Newton it.:  5, residual(L2) = 8.0367E-14, increment(L2) = 5.5283E-15
+       Loading step (mat): 12, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.0605E+00
+       Loading step (mat): 12, Newton it.:  2, residual(L2) = 2.6814E-01, increment(L2) = 3.3083E-02
+       Loading step (mat): 12, Newton it.:  3, residual(L2) = 4.1451E-04, increment(L2) = 3.8933E-05
+       Loading step (mat): 12, Newton it.:  4, residual(L2) = 6.0677E-10, increment(L2) = 3.5978E-11
+       Loading step (mat): 12, Newton it.:  5, residual(L2) = 8.6916E-14, increment(L2) = 4.5485E-15
+       Loading step (mat): 13, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 1.0109E+00
+       Loading step (mat): 13, Newton it.:  2, residual(L2) = 2.2589E-01, increment(L2) = 3.0693E-02
+       Loading step (mat): 13, Newton it.:  3, residual(L2) = 3.3218E-04, increment(L2) = 2.4161E-05
+       Loading step (mat): 13, Newton it.:  4, residual(L2) = 2.7284E-10, increment(L2) = 1.6505E-11
+       Loading step (mat): 13, Newton it.:  5, residual(L2) = 6.7879E-14, increment(L2) = 5.4265E-15
+       Loading step (mat): 14, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 9.6450E-01
+       Loading step (mat): 14, Newton it.:  2, residual(L2) = 1.9191E-01, increment(L2) = 2.8957E-02
+       Loading step (mat): 14, Newton it.:  3, residual(L2) = 2.7472E-04, increment(L2) = 1.5607E-05
+       Loading step (mat): 14, Newton it.:  4, residual(L2) = 1.3981E-10, increment(L2) = 8.8077E-12
+       Loading step (mat): 14, Newton it.:  5, residual(L2) = 6.9837E-14, increment(L2) = 4.6715E-15
+       Loading step (mat): 15, Newton it.:  1, residual(L2) = 4.5021E+00, increment(L2) = 9.2073E-01
+       Loading step (mat): 15, Newton it.:  2, residual(L2) = 1.6425E-01, increment(L2) = 2.7554E-02
+       Loading step (mat): 15, Newton it.:  3, residual(L2) = 2.3209E-04, increment(L2) = 1.2241E-05
+       Loading step (mat): 15, Newton it.:  4, residual(L2) = 8.4674E-11, increment(L2) = 5.0536E-12
+       Loading step (mat): 15, Newton it.:  5, residual(L2) = 6.1477E-14, increment(L2) = 3.3751E-15
+    -- Primal problem done on master core in       6.3500E-01s (All core(s) 6.3204E-01s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0010E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=8.2918E+01 and ||g||_2=1.2430E+02
+  ++ Elapsed time for this iteration on the master core:6.3700E-01s (All core(s):6.4004E-01s)
+   
+  ++ iteration            1
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)= -0.28824139513311009       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)= -2.92059517829515794E-003  iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.24681367888710842       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.25842571677480997       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.39912236172740084       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.48262845698442863       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.48829019255658601       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.54589624475485543       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.56979735260117492       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.8532E+00, increment(L2) = 1.4181E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.4456E-01, increment(L2) = 7.9510E-02
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.7544E-03, increment(L2) = 1.4075E-04
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 5.0072E-09, increment(L2) = 7.0224E-10
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 5.8234E-14, increment(L2) = 5.8558E-15
+    -- Primal problem done on master core in       3.8000E-02s (All core(s) 3.6002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.4825E+01 and ||g||_2=5.6986E+01
+  ++ Elapsed time for this iteration on the master core:4.0000E-02s (All core(s):4.0002E-02s)
+   
+  ++ iteration            2
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)= -5.59283995427770353E-002  iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.20266253372606566       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.24689288012367891       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.31743557399457206       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.51959230263868528       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.48511145246595772       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.59805422415730380       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.63789166836123923       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.73475802145944569       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.7324E+00, increment(L2) = 5.2859E-01
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.3807E-02, increment(L2) = 1.4990E-02
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 4.1221E-05, increment(L2) = 7.0814E-06
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.6270E-11, increment(L2) = 1.3209E-12
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 7.1637E-14, increment(L2) = 5.6232E-15
+    -- Primal problem done on master core in       3.8000E-02s (All core(s) 3.6002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0010E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=2.0837E+01 and ||g||_2=4.5998E+01
+  ++ Elapsed time for this iteration on the master core:4.0000E-02s (All core(s):4.0003E-02s)
+   
+  ++ iteration            3
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.27094306358791292       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.42174380498720088       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.34342157415858077       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.54329298717545493       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.48520898328492551       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.63151745374520141       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.72145862809277328       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.81656725204701441       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.90792730622505258       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.0967E+00, increment(L2) = 5.4522E-01
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.9520E-02, increment(L2) = 2.1815E-02
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 8.0754E-05, increment(L2) = 1.0925E-05
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 4.1344E-11, increment(L2) = 4.6111E-12
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 7.7353E-14, increment(L2) = 6.0068E-15
+    -- Primal problem done on master core in       3.8000E-02s (All core(s) 3.6002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.6970E+01 and ||g||_2=6.1266E+01
+  ++ Elapsed time for this iteration on the master core:4.0000E-02s (All core(s):4.0002E-02s)
+   
+  ++ iteration            4
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28151169111645780       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38339361129754024       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.36012568218415492       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.48822812698992918       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.54936775926368131       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.59002145055711352       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.68642816572901566       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.73340672072098312       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.85479445090280792       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.6665E-01, increment(L2) = 1.8997E-01
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.1867E-02, increment(L2) = 6.7523E-04
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 2.6796E-07, increment(L2) = 2.1045E-08
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 1.0964E-13, increment(L2) = 5.8048E-15
+    -- Primal problem done on master core in       3.0000E-02s (All core(s) 2.8002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.3009E+01 and ||g||_2=8.5469E+00
+  ++ Elapsed time for this iteration on the master core:3.2000E-02s (All core(s):3.2002E-02s)
+   
+  ++ iteration            5
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.27708506121274540       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.37156990464422207       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.38242748837365392       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.49609581077748172       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.55652902778667335       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.60420143073460442       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.69048584928110579       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.73370489945226236       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.85018372851930191       iset=           5  ipoin=          27
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3811E-01, increment(L2) = 3.9374E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.7284E-04, increment(L2) = 6.8176E-05
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.2165E-09, increment(L2) = 1.1269E-10
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 9.0336E-14, increment(L2) = 7.1630E-15
+    -- Primal problem done on master core in       3.0000E-02s (All core(s) 3.2002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2833E+01 and ||g||_2=4.1662E+00
+  ++ Elapsed time for this iteration on the master core:3.3000E-02s (All core(s):3.2002E-02s)
+   
+  ++ iteration            6
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28751980837582175       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.37861032535890099       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.40724442131786442       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50769258079404644       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56240451307694495       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61788902874166141       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70017851579021595       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.73762777708846461       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.84347777276657243       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.3887E-01, increment(L2) = 4.5585E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 5.6417E-04, increment(L2) = 1.7717E-04
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 6.6692E-09, increment(L2) = 4.3982E-10
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 8.5467E-14, increment(L2) = 5.5608E-15
+    -- Primal problem done on master core in       3.0000E-02s (All core(s) 3.2002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2762E+01 and ||g||_2=1.5299E+00
+  ++ Elapsed time for this iteration on the master core:3.2000E-02s (All core(s):3.2002E-02s)
+   
+  ++ iteration            7
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28400355683481093       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38190519438350146       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41336382165548291       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50990835091682851       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56345102724027707       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61640114628409981       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70873076418859415       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74059096056081408       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83769250282694829       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.7508E-02, increment(L2) = 1.1964E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.9583E-05, increment(L2) = 9.5521E-06
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.6096E-11, increment(L2) = 1.9580E-12
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 7.1706E-14, increment(L2) = 6.1456E-15
+    -- Primal problem done on master core in       3.1000E-02s (All core(s) 3.2002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2754E+01 and ||g||_2=5.3416E-01
+  ++ Elapsed time for this iteration on the master core:3.3000E-02s (All core(s):3.2002E-02s)
+   
+  ++ iteration            8
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28508153379577006       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38410252764781916       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41331629125955510       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50839011772924325       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56325619082115863       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61805962197430009       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70904732201446119       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74047481611377464       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83839553217289375       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.6133E-02, increment(L2) = 4.7625E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 6.0709E-06, increment(L2) = 8.5795E-07
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 2.0055E-13, increment(L2) = 2.5734E-14
+    -- Primal problem done on master core in       2.2000E-02s (All core(s) 2.4002E-02s)
+    -- Dual/adjoint problem done on master core in 2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=3.2058E-01
+  ++ Elapsed time for this iteration on the master core:2.4000E-02s (All core(s):2.4002E-02s)
+   
+  ++ iteration            9
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28499180676294433       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38338909428603174       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310890503436243       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50902282015560063       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56337500411757258       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743719396817087       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70878804320085198       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74055671647952914       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83849638529773107       iset=           5  ipoin=          27
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.0932E-03, increment(L2) = 1.8672E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 9.7654E-07, increment(L2) = 8.6601E-08
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.0135E-14, increment(L2) = 7.1850E-15
+    -- Primal problem done on master core in       2.2000E-02s (All core(s) 2.4001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=5.8171E-03
+  ++ Elapsed time for this iteration on the master core:2.5000E-02s (All core(s):2.8001E-02s)
+   
+  ++ iteration           10
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498896122903949       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340345012955912       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310809503484452       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903307472823234       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338418232832743       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743856301338496       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70878408271377269       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74056870600026337       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850487096901238       iset=           5  ipoin=          27
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.7807E-04, increment(L2) = 3.2500E-05
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.4603E-10, increment(L2) = 3.8802E-11
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 8.8423E-14, increment(L2) = 3.8919E-15
+    -- Primal problem done on master core in       2.2000E-02s (All core(s) 2.0002E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=1.7696E-03
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:3.0000E-02s (All core(s):2.4002E-02s)
+   
+  ++ iteration           11
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498792716768057       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340897457584783       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310691283122541       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903615094272581       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338853095883967       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743936852036141       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877895584718675       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057194939574467       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850385545351036       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.2389E-05, increment(L2) = 9.5366E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.0390E-11, increment(L2) = 6.9232E-12
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 6.8930E-14, increment(L2) = 4.7561E-15
+    -- Primal problem done on master core in       2.2000E-02s (All core(s) 2.4001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=8.6893E-05
+  ++ Elapsed time for this iteration on the master core:2.5000E-02s (All core(s):2.4001E-02s)
+   
+  ++ iteration           12
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498839131925241       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340902274922745       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310689538574352       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903634328903602       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338876790884318       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743978113485209       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877917296545956       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057226352904781       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850394091388103       iset=           5  ipoin=          27
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.2720E-06, increment(L2) = 1.0941E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.1713E-13, increment(L2) = 6.4878E-14
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0010E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=2.8247E-05
+  ++ Elapsed time for this iteration on the master core:1.8000E-02s (All core(s):2.0002E-02s)
+   
+  ++ iteration           13
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827587144182       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899228669362       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310689703373127       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632701971069       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871209353547       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972550447790       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910467443406       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215203293991       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388369816864       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3405E-06, increment(L2) = 3.1651E-07
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 5.9487E-14, increment(L2) = 4.2250E-15
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=2.2727E-06
+  ++ Elapsed time for this iteration on the master core:1.7000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           14
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827919961522       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899385979138       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690073656359       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632256222942       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871355202635       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972163615346       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910533791344       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215707466284       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388680891530       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.2406E-08, increment(L2) = 8.2805E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 8.2070E-14, increment(L2) = 5.8818E-15
+    -- Primal problem done on master core in       1.6000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=3.1800E-07
+  ++ Elapsed time for this iteration on the master core:1.8000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498828037886614       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899467274858       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690102527847       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632321671943       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871381849664       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972162524030       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910581682735       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215691215950       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388722603220       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 4.0000E-03s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.6501E-08, increment(L2) = 2.6383E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 8.6517E-14, increment(L2) = 1.1017E-14
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.2001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=1.1661E-07
+  ++ Elapsed time for this iteration on the master core:1.7000E-02s (All core(s):2.0001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827920583503       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899386407923       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690073808637       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632256568143       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871355343179       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972163609595       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910534043942       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215707380575       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388681111532       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.6414E-08, increment(L2) = 2.6244E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.8444E-14, increment(L2) = 6.9115E-15
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=3.1682E-07
+  ++ Elapsed time for this iteration on the master core:1.7000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827998003556       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899439780102       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690092763314       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632299536650       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871372837462       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972162893124       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910565485547       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215696711920       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388708496049       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0833E-08, increment(L2) = 1.7321E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 8.5131E-14, increment(L2) = 5.3241E-15
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=1.7597E-07
+  ++ Elapsed time for this iteration on the master core:1.7000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827920688730       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899386480465       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690073834400       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632256626541       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871355366960       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972163608618       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910534086674       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215707366075       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388681148758       iset=           5  ipoin=          27
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0818E-08, increment(L2) = 1.7298E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.4222E-14, increment(L2) = 4.6705E-15
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=3.1662E-07
+  ++ Elapsed time for this iteration on the master core:1.8000E-02s (All core(s):2.0001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827920583503       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899386407923       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690073808637       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632256568143       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871355343179       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972163609595       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910534043942       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215707380575       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388681111532       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4723E-11, increment(L2) = 2.3565E-12
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.1476E-14, increment(L2) = 4.0638E-15
+    -- Primal problem done on master core in       1.5000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=3.1682E-07
+  ++ Elapsed time for this iteration on the master core:1.7000E-02s (All core(s):1.6001E-02s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=  0.28498827920583503       iset=           5  ipoin=          19
+ adata_nodal(iset, ipoin)=  0.38340899386407923       iset=           5  ipoin=          20
+ adata_nodal(iset, ipoin)=  0.41310690073808637       iset=           5  ipoin=          21
+ adata_nodal(iset, ipoin)=  0.50903632256568143       iset=           5  ipoin=          22
+ adata_nodal(iset, ipoin)=  0.56338871355343179       iset=           5  ipoin=          23
+ adata_nodal(iset, ipoin)=  0.61743972163609595       iset=           5  ipoin=          24
+ adata_nodal(iset, ipoin)=  0.70877910534043942       iset=           5  ipoin=          25
+ adata_nodal(iset, ipoin)=  0.74057215707380575       iset=           5  ipoin=          26
+ adata_nodal(iset, ipoin)=  0.83850388681111532       iset=           5  ipoin=          27
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.0629E-14, increment(L2) = 3.3127E-15
+    -- Primal problem done on master core in       8.0000E-03s (All core(s) 8.0010E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 4.0000E-03s)
+   -- Objective function and gradient created, f=1.2753E+01 and ||g||_2=3.1682E-07
+  ++ Elapsed time for this iteration on the master core:1.0000E-02s (All core(s):1.2001E-02s)
+ REL_R_O_F =  -2.78579528911135419E-015 , factr =   1.00000000000000008E-015 , epsmch =   2.22044604925031308E-016 iter =           16
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N   Tit  Tnf  Tnint  Skip  Nact     Projg        F
+    9   16   23     24     0     0   1.623D-07   1.275D+01
+  F =   12.752960322270440     
+
+CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 1.600E+00 seconds.
+
+ Total User time 2.324E+00 seconds.
+
+ the opt algo has terminated before the NLACE criteria said so ...
+ ---------------------
+ Post processor format: paraview
+ ---------------------

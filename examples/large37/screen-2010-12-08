@@ -1,0 +1,939 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Wed Dec  8 11:54:09 2010
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+   Will solve an inverse problem: problemType=           1
+  
+ prefix for the output file ............   large37-2010-21-08.out
+  
+ number of elements ....................       16875
+ number of points    ...................        4096
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           1
+ max. number of properties per material.           6
+ number of measurements.................           1
+ max. num of nodes per bc set...........         512
+ tolerance for Newton iteration.........      1.0000E-11
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........          70
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=        1000
+ maximum number of fields to optimize...           1
+  
+ number of Cores used by the solver ....           6
+
+    LINEAR ELASTICITY(2D,2DOF) 
+    gauss pts/dir                       4
+    reg type(0/1/2:none/H1/TVD)         2
+    regularization parameter      0.100000E-10
+    extra parameter (TVD)         0.100000E-01
+    stabilization factor       0.100000E+01
+    stabilization terms 0/1 off/                                      laplacian stabilization           1
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:1.8200E-01s (All core(s):1.6801E-01s)
+ ## Total elapsed time on the master core:        1.8200E-01s (All core(s):1.8001E-01s)
+
+  ++ RUNNING THE L-BFGS-B CODE
+
+     Note: if iteration X0 leads to an error, try to increase the number of loading steps or
+     try to increase the tolerance or try to provide a better initialization of the material
+     properties or try to impose smoother boundary condition (if DBCs are enforced).
+
+  ++ At L-BFGS-B X0         0 variables are exactly at the bounds
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0700E-01s (All core(s) 1.0801E-01s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 1.3486E-02, increment(L2)= 4.5506E-01
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 1.4902E-17, increment(L2)= 6.2045E-15
+    -- Primal problem done on master core in       2.1630E+00s (All core(s) 9.2686E+00s)
+    -- Dual/adjoint problem done on master core in 6.0600E-01s (All core(s) 2.9402E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 5.8404E-01s)
+    -- For scaling: g1=  5.04686773590167940E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:3.7390E+00s (All core(s):1.3201E+01s)
+     Note: if iteration 0 leads to an error, try to narrow the L-BFGS-B bounds or
+     try to change the tolerance or try to increase the regularization
+
+
+  ++ At L-BFGS-B iterate    0    f=  2.62668D-09    |proj g|=  2.82429D-12 (cf *.ite)
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.6500E-01s (All core(s) 1.6401E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.4414E-16, increment(L2) = 4.8913E-14
+    -- Primal problem done on master core in       5.7900E-01s (All core(s) 3.4242E+00s)
+    -- Dual/adjoint problem done on master core in 5.8100E-01s (All core(s) 2.9442E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 7.4005E-01s)
+    -- For scaling: g1=  5.04686773546807779E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:1.7190E+00s (All core(s):7.2725E+00s)
+
+  ++ At L-BFGS-B iterate    1    f=  2.62668D-09    |proj g|=  2.82429D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.4851E-06, increment(L2) = 9.3592E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.8380E-18, increment(L2) = 5.4005E-16
+    -- Primal problem done on master core in       1.2000E+00s (All core(s) 6.5564E+00s)
+    -- Dual/adjoint problem done on master core in 5.9000E-01s (All core(s) 3.2082E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.3481E+00s)
+    -- For scaling: g1=  4.79998508391776650E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2800E+00s (All core(s):1.1213E+01s)
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0200E-01s (All core(s) 1.0401E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.5969E-05, increment(L2) = 3.7629E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.8243E-18, increment(L2) = 3.1198E-16
+    -- Primal problem done on master core in       1.2550E+00s (All core(s) 6.8004E+00s)
+    -- Dual/adjoint problem done on master core in 7.1900E-01s (All core(s) 3.1402E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 9.8806E-01s)
+    -- For scaling: g1=  4.47947158685320911E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.4680E+00s (All core(s):1.1033E+01s)
+
+  ++ At L-BFGS-B iterate    2    f=  2.39492D-09    |proj g|=  2.54945D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.0717E-04, increment(L2) = 6.4960E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.4821E-18, increment(L2) = 4.4274E-16
+    -- Primal problem done on master core in       1.3900E+00s (All core(s) 7.4445E+00s)
+    -- Dual/adjoint problem done on master core in 6.2800E-01s (All core(s) 3.0442E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 4.9203E-01s)
+    -- For scaling: g1=  4.63945756048583022E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.5030E+00s (All core(s):1.1077E+01s)
+
+  ++ At L-BFGS-B iterate    3    f=  7.29590D-10    |proj g|=  5.44582D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.3000E-02s (All core(s) 9.6007E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.8005E-05, increment(L2) = 1.2910E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7522E-18, increment(L2) = 3.7741E-16
+    -- Primal problem done on master core in       1.2810E+00s (All core(s) 7.1444E+00s)
+    -- Dual/adjoint problem done on master core in 5.8300E-01s (All core(s) 2.9442E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 7.2804E-01s)
+    -- For scaling: g1=  2.59609015965303783E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3490E+00s (All core(s):1.0917E+01s)
+
+  ++ At L-BFGS-B iterate    4    f=  4.92032D-10    |proj g|=  2.42087D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.3815E-05, increment(L2) = 7.1892E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7210E-18, increment(L2) = 7.5845E-16
+    -- Primal problem done on master core in       1.1590E+00s (All core(s) 6.4284E+00s)
+    -- Dual/adjoint problem done on master core in 6.1900E-01s (All core(s) 2.9722E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 4.3603E-01s)
+    -- For scaling: g1=  1.82350466598986782E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2610E+00s (All core(s):9.9286E+00s)
+
+  ++ At L-BFGS-B iterate    5    f=  3.97544D-10    |proj g|=  2.03991D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.6000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.3999E-05, increment(L2) = 1.1337E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6370E-18, increment(L2) = 4.1906E-16
+    -- Primal problem done on master core in       1.2930E+00s (All core(s) 7.3445E+00s)
+    -- Dual/adjoint problem done on master core in 6.8900E-01s (All core(s) 3.1482E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.0681E+00s)
+    -- For scaling: g1=  1.58102282780654069E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.4720E+00s (All core(s):1.1661E+01s)
+
+  ++ At L-BFGS-B iterate    6    f=  2.84686D-10    |proj g|=  1.40313D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0100E-01s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.2824E-05, increment(L2) = 1.1327E-02
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7551E-18, increment(L2) = 5.8395E-16
+    -- Primal problem done on master core in       1.4490E+00s (All core(s) 8.1805E+00s)
+    -- Dual/adjoint problem done on master core in 7.4100E-01s (All core(s) 3.2762E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 6.5204E-01s)
+    -- For scaling: g1=  1.91668478013946617E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.6850E+00s (All core(s):1.2209E+01s)
+
+  ++ At L-BFGS-B iterate    7    f=  2.13902D-10    |proj g|=  1.68406D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.3000E-02s (All core(s) 9.6005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4025E-05, increment(L2) = 1.9311E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6463E-18, increment(L2) = 3.2708E-16
+    -- Primal problem done on master core in       1.5980E+00s (All core(s) 9.1766E+00s)
+    -- Dual/adjoint problem done on master core in 8.2900E-01s (All core(s) 4.4123E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 1.0841E+00s)
+    -- For scaling: g1=  9.99460998003869997E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.9150E+00s (All core(s):1.4773E+01s)
+
+  ++ At L-BFGS-B iterate    8    f=  1.95656D-10    |proj g|=  1.11161D-12
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.9000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.5738E-05, increment(L2) = 2.0693E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7352E-18, increment(L2) = 3.4180E-16
+    -- Primal problem done on master core in       1.8790E+00s (All core(s) 9.7846E+00s)
+    -- Dual/adjoint problem done on master core in 1.0720E+00s (All core(s) 5.3683E+00s)
+    -- Gradient built on master core in            3.9300E-01s (All core(s) 8.5205E-01s)
+    -- For scaling: g1=  9.87908170896269956E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.4460E+00s (All core(s):1.6105E+01s)
+
+  ++ At L-BFGS-B iterate    9    f=  1.85148D-10    |proj g|=  5.60060D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0100E-01s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1640E-05, increment(L2) = 1.0092E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6907E-18, increment(L2) = 1.0846E-15
+    -- Primal problem done on master core in       2.2350E+00s (All core(s) 1.0557E+01s)
+    -- Dual/adjoint problem done on master core in 1.0920E+00s (All core(s) 5.3283E+00s)
+    -- Gradient built on master core in            3.9400E-01s (All core(s) 7.3205E-01s)
+    -- For scaling: g1=  8.64584552881662003E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8270E+00s (All core(s):1.6725E+01s)
+
+  ++ At L-BFGS-B iterate   10    f=  1.79192D-10    |proj g|=  6.43216D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0500E-01s (All core(s) 1.0401E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.1783E-05, increment(L2) = 2.6793E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7405E-18, increment(L2) = 2.5597E-16
+    -- Primal problem done on master core in       2.1180E+00s (All core(s) 9.7006E+00s)
+    -- Dual/adjoint problem done on master core in 9.7800E-01s (All core(s) 4.4923E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 7.3205E-01s)
+    -- For scaling: g1=  7.85885514021819094E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.5980E+00s (All core(s):1.5033E+01s)
+
+  ++ At L-BFGS-B iterate   11    f=  1.66136D-10    |proj g|=  4.16781D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.8000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.2665E-05, increment(L2) = 1.2470E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6136E-18, increment(L2) = 1.0476E-15
+    -- Primal problem done on master core in       1.8350E+00s (All core(s) 9.2926E+00s)
+    -- Dual/adjoint problem done on master core in 9.6400E-01s (All core(s) 4.4043E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 1.2761E+00s)
+    -- For scaling: g1=  7.83325472594270102E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.2920E+00s (All core(s):1.5081E+01s)
+
+  ++ At L-BFGS-B iterate   12    f=  1.61019D-10    |proj g|=  3.61160D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0200E-01s (All core(s) 1.0401E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.9720E-05, increment(L2) = 1.3767E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7305E-18, increment(L2) = 6.0173E-16
+    -- Primal problem done on master core in       1.9010E+00s (All core(s) 1.0145E+01s)
+    -- Dual/adjoint problem done on master core in 9.7000E-01s (All core(s) 5.3843E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 4.2403E-01s)
+    -- For scaling: g1=  7.38455213607344231E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.3690E+00s (All core(s):1.6061E+01s)
+
+  ++ At L-BFGS-B iterate   13    f=  1.54972D-10    |proj g|=  4.08558D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.5000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.5516E-05, increment(L2) = 1.3933E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7230E-18, increment(L2) = 5.4123E-16
+    -- Primal problem done on master core in       1.8210E+00s (All core(s) 8.9406E+00s)
+    -- Dual/adjoint problem done on master core in 9.6800E-01s (All core(s) 4.0443E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 1.0521E+00s)
+    -- For scaling: g1=  6.73304268162797054E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.2800E+00s (All core(s):1.4137E+01s)
+
+  ++ At L-BFGS-B iterate   14    f=  1.49240D-10    |proj g|=  3.30834D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0000E-01s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.6195E-05, increment(L2) = 1.7130E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7953E-18, increment(L2) = 4.5006E-16
+    -- Primal problem done on master core in       1.9110E+00s (All core(s) 1.0029E+01s)
+    -- Dual/adjoint problem done on master core in 9.9100E-01s (All core(s) 4.3883E+00s)
+    -- Gradient built on master core in            3.9300E-01s (All core(s) 1.0521E+00s)
+    -- For scaling: g1=  6.93954544307952432E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.4000E+00s (All core(s):1.5573E+01s)
+
+  ++ At L-BFGS-B iterate   15    f=  1.41915D-10    |proj g|=  4.01969D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.8000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.5269E-06, increment(L2) = 6.9369E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.8285E-18, increment(L2) = 1.0369E-15
+    -- Primal problem done on master core in       1.9420E+00s (All core(s) 1.0369E+01s)
+    -- Dual/adjoint problem done on master core in 9.8500E-01s (All core(s) 4.7363E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 9.2806E-01s)
+    -- For scaling: g1=  5.79555946695813806E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.4200E+00s (All core(s):1.6137E+01s)
+
+  ++ At L-BFGS-B iterate   16    f=  1.39677D-10    |proj g|=  3.99126D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.9000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.2732E-05, increment(L2) = 1.4855E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7229E-18, increment(L2) = 6.3260E-16
+    -- Primal problem done on master core in       1.4930E+00s (All core(s) 7.9285E+00s)
+    -- Dual/adjoint problem done on master core in 6.1600E-01s (All core(s) 3.3522E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 9.1206E-01s)
+    -- For scaling: g1=  5.01361260767103669E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.6010E+00s (All core(s):1.2293E+01s)
+
+  ++ At L-BFGS-B iterate   17    f=  1.32395D-10    |proj g|=  2.58912D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.1372E-05, increment(L2) = 2.5152E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6302E-18, increment(L2) = 6.6474E-16
+    -- Primal problem done on master core in       1.2090E+00s (All core(s) 6.8324E+00s)
+    -- Dual/adjoint problem done on master core in 6.4900E-01s (All core(s) 2.6202E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.2081E+00s)
+    -- For scaling: g1=  1.04475203193317360E-011  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3430E+00s (All core(s):1.0761E+01s)
+
+  ++ At L-BFGS-B iterate   18    f=  1.24817D-10    |proj g|=  5.13668D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.6341E-06, increment(L2) = 4.8066E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6548E-18, increment(L2) = 4.0655E-16
+    -- Primal problem done on master core in       1.2330E+00s (All core(s) 6.4804E+00s)
+    -- Dual/adjoint problem done on master core in 6.1400E-01s (All core(s) 2.9322E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 5.7204E-01s)
+    -- For scaling: g1=  6.44948693675241862E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3300E+00s (All core(s):1.0077E+01s)
+
+  ++ At L-BFGS-B iterate   19    f=  1.21987D-10    |proj g|=  3.03172D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.1000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.4359E-06, increment(L2) = 5.0489E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6636E-18, increment(L2) = 2.5558E-16
+    -- Primal problem done on master core in       1.2460E+00s (All core(s) 6.6244E+00s)
+    -- Dual/adjoint problem done on master core in 7.9600E-01s (All core(s) 3.7562E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 9.3206E-01s)
+    -- For scaling: g1=  4.17506026784841972E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.5270E+00s (All core(s):1.1409E+01s)
+
+  ++ At L-BFGS-B iterate   20    f=  1.20345D-10    |proj g|=  3.23273D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.0000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.9399E-06, increment(L2) = 5.3458E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7355E-18, increment(L2) = 4.8937E-16
+    -- Primal problem done on master core in       1.2730E+00s (All core(s) 6.8844E+00s)
+    -- Dual/adjoint problem done on master core in 5.6600E-01s (All core(s) 3.3362E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.3081E+00s)
+    -- For scaling: g1=  4.71640736645116005E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3220E+00s (All core(s):1.1625E+01s)
+
+  ++ At L-BFGS-B iterate   21    f=  1.19454D-10    |proj g|=  2.16567D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8004E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.0793E-06, increment(L2) = 4.0283E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6136E-18, increment(L2) = 2.7498E-16
+    -- Primal problem done on master core in       1.1650E+00s (All core(s) 6.0444E+00s)
+    -- Dual/adjoint problem done on master core in 5.6800E-01s (All core(s) 3.2002E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.2361E+00s)
+    -- For scaling: g1=  3.97659342968417526E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2150E+00s (All core(s):1.0569E+01s)
+
+  ++ At L-BFGS-B iterate   22    f=  1.17864D-10    |proj g|=  2.09230D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.1043E-06, increment(L2) = 5.5881E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6872E-18, increment(L2) = 6.8680E-16
+    -- Primal problem done on master core in       1.2030E+00s (All core(s) 6.5324E+00s)
+    -- Dual/adjoint problem done on master core in 6.6200E-01s (All core(s) 3.4642E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 4.6803E-01s)
+    -- For scaling: g1=  4.48488240716018316E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3560E+00s (All core(s):1.0565E+01s)
+
+  ++ At L-BFGS-B iterate   23    f=  1.16454D-10    |proj g|=  2.07436D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.0748E-06, increment(L2) = 4.6163E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7322E-18, increment(L2) = 5.1315E-16
+    -- Primal problem done on master core in       1.2980E+00s (All core(s) 6.8884E+00s)
+    -- Dual/adjoint problem done on master core in 7.7300E-01s (All core(s) 3.3282E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 6.6804E-01s)
+    -- For scaling: g1=  4.07787733629261768E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.5560E+00s (All core(s):1.0981E+01s)
+
+  ++ At L-BFGS-B iterate   24    f=  1.14820D-10    |proj g|=  2.61437D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.4000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.8131E-06, increment(L2) = 4.4225E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7379E-18, increment(L2) = 5.4529E-16
+    -- Primal problem done on master core in       1.3830E+00s (All core(s) 7.5405E+00s)
+    -- Dual/adjoint problem done on master core in 6.8600E-01s (All core(s) 4.1003E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 8.8806E-01s)
+    -- For scaling: g1=  4.03956274026308998E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.5580E+00s (All core(s):1.2629E+01s)
+
+  ++ At L-BFGS-B iterate   25    f=  1.13774D-10    |proj g|=  2.62762D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.1000E-02s (All core(s) 9.2007E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.2132E-06, increment(L2) = 6.3957E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7284E-18, increment(L2) = 6.7605E-16
+    -- Primal problem done on master core in       1.7840E+00s (All core(s) 8.9246E+00s)
+    -- Dual/adjoint problem done on master core in 9.4200E-01s (All core(s) 4.4963E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 8.4405E-01s)
+    -- For scaling: g1=  3.71681058482782345E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.2130E+00s (All core(s):1.4357E+01s)
+
+  ++ At L-BFGS-B iterate   26    f=  1.11231D-10    |proj g|=  1.69570D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.9000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.9621E-06, increment(L2) = 4.4379E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6984E-18, increment(L2) = 6.3816E-16
+    -- Primal problem done on master core in       1.9020E+00s (All core(s) 1.0441E+01s)
+    -- Dual/adjoint problem done on master core in 9.7000E-01s (All core(s) 4.4683E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 1.0201E+00s)
+    -- For scaling: g1=  3.87546095600117825E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.3660E+00s (All core(s):1.6033E+01s)
+
+  ++ At L-BFGS-B iterate   27    f=  1.10102D-10    |proj g|=  1.65594D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.8000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.2425E-05, increment(L2) = 9.2325E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7216E-18, increment(L2) = 7.5070E-16
+    -- Primal problem done on master core in       1.8060E+00s (All core(s) 9.8006E+00s)
+    -- Dual/adjoint problem done on master core in 9.0200E-01s (All core(s) 4.0923E+00s)
+    -- Gradient built on master core in            3.9300E-01s (All core(s) 1.0081E+00s)
+    -- For scaling: g1=  3.24421737365177131E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.2030E+00s (All core(s):1.5001E+01s)
+
+  ++ At L-BFGS-B iterate   28    f=  1.06459D-10    |proj g|=  1.35464D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0200E-01s (All core(s) 1.0401E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.9442E-06, increment(L2) = 6.7300E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7225E-18, increment(L2) = 7.0199E-16
+    -- Primal problem done on master core in       1.7340E+00s (All core(s) 9.7406E+00s)
+    -- Dual/adjoint problem done on master core in 8.8600E-01s (All core(s) 4.2803E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 4.0803E-01s)
+    -- For scaling: g1=  5.22974310641836706E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.1160E+00s (All core(s):1.4537E+01s)
+
+  ++ At L-BFGS-B iterate   29    f=  1.05220D-10    |proj g|=  2.33748D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.9000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.7583E-06, increment(L2) = 2.7791E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6827E-18, increment(L2) = 9.1880E-16
+    -- Primal problem done on master core in       1.8080E+00s (All core(s) 9.5766E+00s)
+    -- Dual/adjoint problem done on master core in 8.4000E-01s (All core(s) 4.0283E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 7.0804E-01s)
+    -- For scaling: g1=  3.40513494501961630E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.1420E+00s (All core(s):1.4421E+01s)
+
+  ++ At L-BFGS-B iterate   30    f=  1.04602D-10    |proj g|=  1.49202D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4736E-05, increment(L2) = 1.2585E-03
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6555E-18, increment(L2) = 3.9525E-16
+    -- Primal problem done on master core in       1.8010E+00s (All core(s) 9.6886E+00s)
+    -- Dual/adjoint problem done on master core in 1.0330E+00s (All core(s) 5.2043E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.0921E+00s)
+    -- For scaling: g1=  3.67819085052487577E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.3250E+00s (All core(s):1.6085E+01s)
+
+  ++ At L-BFGS-B iterate   31    f=  1.00723D-10    |proj g|=  1.33879D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.6000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.5062E-06, increment(L2) = 4.1526E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6982E-18, increment(L2) = 3.8741E-16
+    -- Primal problem done on master core in       1.8520E+00s (All core(s) 1.0221E+01s)
+    -- Dual/adjoint problem done on master core in 9.9900E-01s (All core(s) 4.5843E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 3.9202E-01s)
+    -- For scaling: g1=  3.71113255826972325E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.3410E+00s (All core(s):1.5297E+01s)
+
+  ++ At L-BFGS-B iterate   32    f=  9.98229D-11    |proj g|=  3.02836D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.9755E-06, increment(L2) = 3.9645E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7282E-18, increment(L2) = 9.4591E-16
+    -- Primal problem done on master core in       2.1030E+00s (All core(s) 9.7006E+00s)
+    -- Dual/adjoint problem done on master core in 1.0740E+00s (All core(s) 4.8283E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.0721E+00s)
+    -- For scaling: g1=  2.87212643691988927E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.6600E+00s (All core(s):1.5693E+01s)
+
+  ++ At L-BFGS-B iterate   33    f=  9.90885D-11    |proj g|=  2.21286D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.2766E-06, increment(L2) = 4.3479E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6952E-18, increment(L2) = 4.8068E-16
+    -- Primal problem done on master core in       2.0960E+00s (All core(s) 1.1001E+01s)
+    -- Dual/adjoint problem done on master core in 1.0260E+00s (All core(s) 4.3283E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 1.0081E+00s)
+    -- For scaling: g1=  3.59332609374653130E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.6130E+00s (All core(s):1.6441E+01s)
+
+  ++ At L-BFGS-B iterate   34    f=  9.84526D-11    |proj g|=  1.30372D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.0629E-06, increment(L2) = 1.2876E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6369E-18, increment(L2) = 4.7478E-16
+    -- Primal problem done on master core in       1.6220E+00s (All core(s) 8.6845E+00s)
+    -- Dual/adjoint problem done on master core in 8.5600E-01s (All core(s) 3.8402E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.1881E+00s)
+    -- For scaling: g1=  2.87750410762525719E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.9640E+00s (All core(s):1.3809E+01s)
+
+  ++ At L-BFGS-B iterate   35    f=  9.80851D-11    |proj g|=  1.02450D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.5000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.8670E-06, increment(L2) = 4.2483E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6872E-18, increment(L2) = 6.3249E-16
+    -- Primal problem done on master core in       1.4560E+00s (All core(s) 8.2085E+00s)
+    -- Dual/adjoint problem done on master core in 6.4200E-01s (All core(s) 2.7042E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 1.2681E+00s)
+    -- For scaling: g1=  3.45238953923046763E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.5860E+00s (All core(s):1.2277E+01s)
+
+  ++ At L-BFGS-B iterate   36    f=  9.73890D-11    |proj g|=  1.20295D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.5982E-06, increment(L2) = 1.4373E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7126E-18, increment(L2) = 6.2164E-16
+    -- Primal problem done on master core in       1.2580E+00s (All core(s) 6.7244E+00s)
+    -- Dual/adjoint problem done on master core in 6.0900E-01s (All core(s) 2.8682E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 5.0803E-01s)
+    -- For scaling: g1=  2.71136312795146288E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3500E+00s (All core(s):1.0193E+01s)
+
+  ++ At L-BFGS-B iterate   37    f=  9.69626D-11    |proj g|=  1.12987D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.3882E-06, increment(L2) = 4.0777E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6459E-18, increment(L2) = 7.6953E-16
+    -- Primal problem done on master core in       1.2740E+00s (All core(s) 6.9164E+00s)
+    -- Dual/adjoint problem done on master core in 7.0700E-01s (All core(s) 3.2842E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 1.1881E+00s)
+    -- For scaling: g1=  3.53056494511431656E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.4630E+00s (All core(s):1.1481E+01s)
+
+  ++ At L-BFGS-B iterate   38    f=  9.64450D-11    |proj g|=  1.21846D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.4000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.7194E-06, increment(L2) = 1.6630E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6885E-18, increment(L2) = 6.6073E-16
+    -- Primal problem done on master core in       1.5530E+00s (All core(s) 8.4725E+00s)
+    -- Dual/adjoint problem done on master core in 8.3800E-01s (All core(s) 4.5003E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 8.1205E-01s)
+    -- For scaling: g1=  2.64288547995043613E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.8780E+00s (All core(s):1.3881E+01s)
+
+  ++ At L-BFGS-B iterate   39    f=  9.62527D-11    |proj g|=  1.08974D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0500E-01s (All core(s) 1.0401E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.7496E-06, increment(L2) = 5.5277E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6870E-18, increment(L2) = 7.9890E-16
+    -- Primal problem done on master core in       2.3430E+00s (All core(s) 1.0705E+01s)
+    -- Dual/adjoint problem done on master core in 9.8300E-01s (All core(s) 4.6243E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 6.9204E-01s)
+    -- For scaling: g1=  3.93690099602865427E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8240E+00s (All core(s):1.6129E+01s)
+
+  ++ At L-BFGS-B iterate   40    f=  9.56035D-11    |proj g|=  1.35244D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0000E-01s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.8218E-06, increment(L2) = 1.9075E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6010E-18, increment(L2) = 6.0911E-16
+    -- Primal problem done on master core in       1.4810E+00s (All core(s) 7.8245E+00s)
+    -- Dual/adjoint problem done on master core in 7.1000E-01s (All core(s) 3.6602E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.2761E+00s)
+    -- For scaling: g1=  2.71146753772327187E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.6850E+00s (All core(s):1.2861E+01s)
+
+  ++ At L-BFGS-B iterate   41    f=  9.53540D-11    |proj g|=  9.66250D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.3000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.1531E-06, increment(L2) = 5.4234E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6356E-18, increment(L2) = 6.6317E-16
+    -- Primal problem done on master core in       1.3890E+00s (All core(s) 7.9605E+00s)
+    -- Dual/adjoint problem done on master core in 6.9100E-01s (All core(s) 3.8002E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 4.3603E-01s)
+    -- For scaling: g1=  2.95642928675398502E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.5660E+00s (All core(s):1.2297E+01s)
+
+  ++ At L-BFGS-B iterate   42    f=  9.44268D-11    |proj g|=  1.00980D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.8000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.4187E-06, increment(L2) = 1.9027E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5473E-18, increment(L2) = 1.7192E-16
+    -- Primal problem done on master core in       1.4450E+00s (All core(s) 7.8885E+00s)
+    -- Dual/adjoint problem done on master core in 7.3600E-01s (All core(s) 3.5482E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.0921E+00s)
+    -- For scaling: g1=  2.32719354211410022E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.6740E+00s (All core(s):1.2629E+01s)
+
+  ++ At L-BFGS-B iterate   43    f=  9.39849D-11    |proj g|=  1.32539D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.4000E-02s (All core(s) 9.2007E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.2966E-06, increment(L2) = 1.9060E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6648E-18, increment(L2) = 1.0949E-15
+    -- Primal problem done on master core in       1.4020E+00s (All core(s) 7.9805E+00s)
+    -- Dual/adjoint problem done on master core in 7.3600E-01s (All core(s) 3.4402E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 9.6406E-01s)
+    -- For scaling: g1=  2.56492006067834066E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.6250E+00s (All core(s):1.2481E+01s)
+
+  ++ At L-BFGS-B iterate   44    f=  9.38332D-11    |proj g|=  9.33309D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.4000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.8215E-06, increment(L2) = 4.6994E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7545E-18, increment(L2) = 9.2829E-16
+    -- Primal problem done on master core in       1.4470E+00s (All core(s) 8.3205E+00s)
+    -- Dual/adjoint problem done on master core in 7.0500E-01s (All core(s) 4.1203E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 7.4805E-01s)
+    -- For scaling: g1=  2.54650981670791232E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.6420E+00s (All core(s):1.3293E+01s)
+
+  ++ At L-BFGS-B iterate   45    f=  9.29901D-11    |proj g|=  9.19294D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.6000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.8429E-06, increment(L2) = 5.0468E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7108E-18, increment(L2) = 2.4972E-16
+    -- Primal problem done on master core in       1.4830E+00s (All core(s) 8.0805E+00s)
+    -- Dual/adjoint problem done on master core in 7.3100E-01s (All core(s) 3.8762E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 1.2321E+00s)
+    -- For scaling: g1=  2.15446495074447035E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.7040E+00s (All core(s):1.3285E+01s)
+
+  ++ At L-BFGS-B iterate   46    f=  9.20572D-11    |proj g|=  1.60298D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3113E-06, increment(L2) = 2.9669E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6986E-18, increment(L2) = 5.2371E-16
+    -- Primal problem done on master core in       1.9250E+00s (All core(s) 9.0686E+00s)
+    -- Dual/adjoint problem done on master core in 8.0300E-01s (All core(s) 4.2043E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 1.1321E+00s)
+    -- For scaling: g1=  2.71226178696692634E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.2210E+00s (All core(s):1.4505E+01s)
+
+  ++ At L-BFGS-B iterate   47    f=  9.17558D-11    |proj g|=  1.00461D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.3466E-06, increment(L2) = 2.2352E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6304E-18, increment(L2) = 7.1747E-16
+    -- Primal problem done on master core in       1.5040E+00s (All core(s) 7.9565E+00s)
+    -- Dual/adjoint problem done on master core in 7.5100E-01s (All core(s) 4.3323E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 3.8802E-01s)
+    -- For scaling: g1=  2.27888666319496287E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.7470E+00s (All core(s):1.2781E+01s)
+
+  ++ At L-BFGS-B iterate   48    f=  9.12849D-11    |proj g|=  8.52452D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.8000E-02s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.2656E-06, increment(L2) = 5.1384E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6112E-18, increment(L2) = 8.7741E-16
+    -- Primal problem done on master core in       1.6790E+00s (All core(s) 8.8966E+00s)
+    -- Dual/adjoint problem done on master core in 8.8500E-01s (All core(s) 4.2163E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 1.1121E+00s)
+    -- For scaling: g1=  2.53678564189279317E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.0580E+00s (All core(s):1.4325E+01s)
+
+  ++ At L-BFGS-B iterate   49    f=  9.05237D-11    |proj g|=  1.34533D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.6000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.2829E-06, increment(L2) = 2.0732E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5891E-18, increment(L2) = 2.5708E-16
+    -- Primal problem done on master core in       1.7500E+00s (All core(s) 9.9566E+00s)
+    -- Dual/adjoint problem done on master core in 9.2900E-01s (All core(s) 4.2123E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 1.2561E+00s)
+    -- For scaling: g1=  1.97350850147864844E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.1690E+00s (All core(s):1.5529E+01s)
+
+  ++ At L-BFGS-B iterate   50    f=  9.01683D-11    |proj g|=  1.13264D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.7951E-06, increment(L2) = 2.8945E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7202E-18, increment(L2) = 3.3078E-16
+    -- Primal problem done on master core in       1.2350E+00s (All core(s) 6.7884E+00s)
+    -- Dual/adjoint problem done on master core in 6.0300E-01s (All core(s) 3.0042E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 6.4804E-01s)
+    -- For scaling: g1=  2.12910419487263402E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3190E+00s (All core(s):1.0529E+01s)
+
+  ++ At L-BFGS-B iterate   51    f=  8.98071D-11    |proj g|=  8.72789D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.7000E-02s (All core(s) 8.8006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.8708E-06, increment(L2) = 4.5762E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7197E-18, increment(L2) = 7.4805E-16
+    -- Primal problem done on master core in       1.2230E+00s (All core(s) 6.7524E+00s)
+    -- Dual/adjoint problem done on master core in 5.9400E-01s (All core(s) 3.4522E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.1681E+00s)
+    -- For scaling: g1=  2.46992545346020228E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2980E+00s (All core(s):1.1469E+01s)
+
+  ++ At L-BFGS-B iterate   52    f=  8.92557D-11    |proj g|=  1.60261D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.8000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.6031E-06, increment(L2) = 5.7999E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5928E-18, increment(L2) = 6.3600E-16
+    -- Primal problem done on master core in       1.1850E+00s (All core(s) 6.5724E+00s)
+    -- Dual/adjoint problem done on master core in 6.5600E-01s (All core(s) 3.5442E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 5.4803E-01s)
+    -- For scaling: g1=  2.10825491525351506E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.3220E+00s (All core(s):1.0753E+01s)
+
+  ++ At L-BFGS-B iterate   53    f=  8.84170D-11    |proj g|=  1.37495D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.0384E-06, increment(L2) = 2.4469E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7048E-18, increment(L2) = 4.4863E-16
+    -- Primal problem done on master core in       1.1870E+00s (All core(s) 6.7244E+00s)
+    -- Dual/adjoint problem done on master core in 5.9300E-01s (All core(s) 3.4522E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.2521E+00s)
+    -- For scaling: g1=  2.00347966749075027E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2620E+00s (All core(s):1.1521E+01s)
+
+  ++ At L-BFGS-B iterate   54    f=  8.81451D-11    |proj g|=  1.18055D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.0000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.6979E-06, increment(L2) = 1.9163E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5969E-18, increment(L2) = 4.5705E-16
+    -- Primal problem done on master core in       1.1240E+00s (All core(s) 5.9444E+00s)
+    -- Dual/adjoint problem done on master core in 5.5800E-01s (All core(s) 3.3242E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 4.2403E-01s)
+    -- For scaling: g1=  2.22941059262266312E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.1660E+00s (All core(s):9.7846E+00s)
+
+  ++ At L-BFGS-B iterate   55    f=  8.79750D-11    |proj g|=  8.33462D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.2242E-06, increment(L2) = 1.0708E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6892E-18, increment(L2) = 1.3783E-15
+    -- Primal problem done on master core in       1.1430E+00s (All core(s) 6.2644E+00s)
+    -- Dual/adjoint problem done on master core in 5.8200E-01s (All core(s) 3.2202E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 3.9202E-01s)
+    -- For scaling: g1=  1.84466510910156204E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2060E+00s (All core(s):9.9686E+00s)
+
+  ++ At L-BFGS-B iterate   56    f=  8.78783D-11    |proj g|=  7.18159D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0981E-06, increment(L2) = 1.5465E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6674E-18, increment(L2) = 3.5629E-16
+    -- Primal problem done on master core in       1.1700E+00s (All core(s) 6.4044E+00s)
+    -- Dual/adjoint problem done on master core in 5.5800E-01s (All core(s) 3.3082E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 1.3321E+00s)
+    -- For scaling: g1=  2.25390026987640297E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2110E+00s (All core(s):1.1141E+01s)
+
+  ++ At L-BFGS-B iterate   57    f=  8.77932D-11    |proj g|=  8.45228D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.9000E-02s (All core(s) 8.8005E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1251E-06, increment(L2) = 1.0551E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5978E-18, increment(L2) = 7.4002E-16
+    -- Primal problem done on master core in       1.0720E+00s (All core(s) 5.9124E+00s)
+    -- Dual/adjoint problem done on master core in 5.8200E-01s (All core(s) 2.8042E+00s)
+    -- Gradient built on master core in            3.8900E-01s (All core(s) 6.5604E-01s)
+    -- For scaling: g1=  1.80879523209372564E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.1360E+00s (All core(s):9.4646E+00s)
+
+  ++ At L-BFGS-B iterate   58    f=  8.77229D-11    |proj g|=  7.39342D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           8.8000E-02s (All core(s) 8.8006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4352E-06, increment(L2) = 1.9977E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6989E-18, increment(L2) = 9.2041E-16
+    -- Primal problem done on master core in       1.1120E+00s (All core(s) 6.3084E+00s)
+    -- Dual/adjoint problem done on master core in 6.0700E-01s (All core(s) 3.1362E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 6.5604E-01s)
+    -- For scaling: g1=  2.29344437600198762E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.2010E+00s (All core(s):1.0193E+01s)
+
+  ++ At L-BFGS-B iterate   59    f=  8.76009D-11    |proj g|=  8.73683D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.0000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1524E-06, increment(L2) = 1.0853E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5566E-18, increment(L2) = 5.6866E-16
+    -- Primal problem done on master core in       1.5250E+00s (All core(s) 7.4925E+00s)
+    -- Dual/adjoint problem done on master core in 7.3300E-01s (All core(s) 3.2002E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 9.6006E-01s)
+    -- For scaling: g1=  1.80883682908254747E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.7420E+00s (All core(s):1.1745E+01s)
+
+  ++ At L-BFGS-B iterate   60    f=  8.75274D-11    |proj g|=  6.94971D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.4000E-02s (All core(s) 9.6007E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.5484E-06, increment(L2) = 2.0627E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6139E-18, increment(L2) = 8.8054E-16
+    -- Primal problem done on master core in       1.7840E+00s (All core(s) 9.4166E+00s)
+    -- Dual/adjoint problem done on master core in 8.0300E-01s (All core(s) 3.4162E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 5.8404E-01s)
+    -- For scaling: g1=  2.26370442212586147E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.0760E+00s (All core(s):1.3517E+01s)
+
+  ++ At L-BFGS-B iterate   61    f=  8.73904D-11    |proj g|=  8.81872D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0687E-06, increment(L2) = 9.6849E-05
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5224E-18, increment(L2) = 7.5416E-16
+    -- Primal problem done on master core in       1.4800E+00s (All core(s) 8.3645E+00s)
+    -- Dual/adjoint problem done on master core in 8.1300E-01s (All core(s) 4.0443E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 6.9204E-01s)
+    -- For scaling: g1=  1.81379448363140638E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:2.7810E+00s (All core(s):1.3197E+01s)
+
+  ++ At L-BFGS-B iterate   62    f=  8.73168D-11    |proj g|=  9.23023D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.6208E-06, increment(L2) = 2.0611E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5757E-18, increment(L2) = 3.7697E-16
+    -- Primal problem done on master core in       1.8990E+00s (All core(s) 1.0553E+01s)
+    -- Dual/adjoint problem done on master core in 9.8600E-01s (All core(s) 4.6843E+00s)
+    -- Gradient built on master core in            3.9300E-01s (All core(s) 7.9205E-01s)
+    -- For scaling: g1=  2.21596150322204765E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.3790E+00s (All core(s):1.6129E+01s)
+
+  ++ At L-BFGS-B iterate   63    f=  8.71688D-11    |proj g|=  9.07529D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0000E-01s (All core(s) 1.0001E-01s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1523E-06, increment(L2) = 9.3547E-05
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6485E-18, increment(L2) = 6.5269E-16
+    -- Primal problem done on master core in       2.0460E+00s (All core(s) 1.0389E+01s)
+    -- Dual/adjoint problem done on master core in 7.9700E-01s (All core(s) 3.9362E+00s)
+    -- Gradient built on master core in            3.9200E-01s (All core(s) 1.0921E+00s)
+    -- For scaling: g1=  1.80755579721598211E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.3400E+00s (All core(s):1.5521E+01s)
+
+  ++ At L-BFGS-B iterate   64    f=  8.70786D-11    |proj g|=  7.85132D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.3000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.5614E-06, increment(L2) = 2.8612E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5494E-18, increment(L2) = 7.9973E-16
+    -- Primal problem done on master core in       1.7030E+00s (All core(s) 9.0646E+00s)
+    -- Dual/adjoint problem done on master core in 8.9400E-01s (All core(s) 4.5323E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 6.7204E-01s)
+    -- For scaling: g1=  2.11231720780332789E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.0850E+00s (All core(s):1.4365E+01s)
+
+  ++ At L-BFGS-B iterate   65    f=  8.68240D-11    |proj g|=  1.00558D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.3000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.9228E-07, increment(L2) = 6.5490E-05
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5999E-18, increment(L2) = 9.5273E-16
+    -- Primal problem done on master core in       1.8850E+00s (All core(s) 9.9886E+00s)
+    -- Dual/adjoint problem done on master core in 8.2300E-01s (All core(s) 3.9882E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 6.8404E-01s)
+    -- For scaling: g1=  1.82065525305351999E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.1950E+00s (All core(s):1.4757E+01s)
+
+  ++ At L-BFGS-B iterate   66    f=  8.67659D-11    |proj g|=  7.60001D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.7000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3166E-06, increment(L2) = 2.5458E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6317E-18, increment(L2) = 1.9686E-16
+    -- Primal problem done on master core in       1.9030E+00s (All core(s) 1.0061E+01s)
+    -- Dual/adjoint problem done on master core in 1.0570E+00s (All core(s) 4.9483E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 4.3203E-01s)
+    -- For scaling: g1=  2.07721151660194812E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.4520E+00s (All core(s):1.5541E+01s)
+
+  ++ At L-BFGS-B iterate   67    f=  8.65457D-11    |proj g|=  1.33997D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.2006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.5545E-06, increment(L2) = 4.0507E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6127E-18, increment(L2) = 6.2819E-16
+    -- Primal problem done on master core in       1.7450E+00s (All core(s) 8.8566E+00s)
+    -- Dual/adjoint problem done on master core in 8.1000E-01s (All core(s) 4.4443E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 1.2161E+00s)
+    -- For scaling: g1=  1.79828100414334856E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.0410E+00s (All core(s):1.4617E+01s)
+
+  ++ At L-BFGS-B iterate   68    f=  8.61113D-11    |proj g|=  9.17499D-14
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.6000E-02s (All core(s) 9.6007E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.3368E-06, increment(L2) = 1.4886E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6553E-18, increment(L2) = 3.8159E-16
+    -- Primal problem done on master core in       2.4870E+00s (All core(s) 1.1369E+01s)
+    -- Dual/adjoint problem done on master core in 1.0000E+00s (All core(s) 5.2003E+00s)
+    -- Gradient built on master core in            3.9100E-01s (All core(s) 1.0841E+00s)
+    -- For scaling: g1=  1.96602873818917224E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.9770E+00s (All core(s):1.7753E+01s)
+
+  ++ At L-BFGS-B iterate   69    f=  8.59947D-11    |proj g|=  1.46224D-13
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize done on master core in           9.2000E-02s (All core(s) 9.6006E-02s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.2853E-06, increment(L2) = 1.1567E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.5008E-18, increment(L2) = 3.5040E-16
+    -- Primal problem done on master core in       2.1990E+00s (All core(s) 1.0077E+01s)
+    -- Dual/adjoint problem done on master core in 1.1050E+00s (All core(s) 5.3003E+00s)
+    -- Gradient built on master core in            3.9000E-01s (All core(s) 3.9202E-01s)
+    -- For scaling: g1=  1.81435307921446866E-012  and g2=   0.0000000000000000     
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.7900E+00s (All core(s):1.5865E+01s)
+
+  ++ At L-BFGS-B iterate   70    f=  8.58681D-11    |proj g|=  8.39807D-14
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+ ## Source/lmain.f: Optimization terminated
+ ## Elapsed time for this step on the master core:2.0649E+02s (All core(s):9.4682E+02s)
+ ## Total elapsed time on the master core:        2.0667E+02s (All core(s):9.4700E+02s)

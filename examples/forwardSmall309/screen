@@ -1,0 +1,124 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Tue Sep  2 10:52:08 2014
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve a forward problem: problemType=           2
+  
+ number of elements ....................          48
+ number of points    ...................          27
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           9
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........           9
+ tolerance for Newton iteration.........      1.0000E-12
+ number of loadings.....................           1
+ number of incremental material steps...           1
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      1.0000E-07
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          13
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          11
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          11
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          15
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          13
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          17
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          17
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          15
+ fluid pressure  .......................      1.0000E-02
+ logflag ...............................           0
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:1.4000E-02s (All core(s):8.0010E-03s)
+ ## Total elapsed time on the master core:        1.4000E-02s (All core(s):4.0002E-02s)
+   ++ Running the forward code 
+    -- Initialize done on master core in           9.2026E+05s (All core(s) 4.0002E-02s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 4.0825E-01, increment(L2)= 4.8874E-02
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 4.6166E-04, increment(L2)= 4.6452E-05
+       Loading step (bc)=  1, Newton it.=  3, residual(L2)= 4.7411E-10, increment(L2)= 5.7183E-11
+       Loading step (bc)=  1, Newton it.=  4, residual(L2)= 4.7751E-14, increment(L2)= 2.2235E-15
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+ ## Source/lmain.f: Forward solve terminated
+ ## Elapsed time for this step on the master core:7.3900E-01s (All core(s):5.5603E-01s)
+ ## Total elapsed time on the master core:        7.5300E-01s (All core(s):5.9604E-01s)

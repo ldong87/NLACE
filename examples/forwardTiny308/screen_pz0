@@ -1,0 +1,74 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Wed Apr 12 14:27:37 2017
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ Will solve a forward problem: problemType=           2
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ number of elements ....................          90
+ number of points    ...................          48
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           1
+ max. number of properties per material.          10
+ number of measurements.................           1
+ max. num of nodes per bc set...........          44
+ tolerance for Newton iteration.........      1.0000E-11
+ number of loadings.....................           1
+ number of incremental material steps...           1
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).          21
+ regularization parameter 1 ............      1.0000E-05
+ regularization parameter 2 ............      5.0000E-06
+ extra parameter (TVD) .................      1.0000E-04
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E-03
+ second extra parameter (TVD) ..........      1.0000E-03
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:4.0000E-03s (All core(s):4.0000E-03s)
+ ## Total elapsed time on the master core:        4.0000E-03s (All core(s):8.0000E-03s)
+   ++ Running the forward code 
+    -- Initialize done on master core in           1.6680E+06s (All core(s) 8.0000E-03s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 1.9912E+00, increment(L2)= 7.3564E-01
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 8.9104E-02, increment(L2)= 3.7982E-02
+       Loading step (bc)=  1, Newton it.=  3, residual(L2)= 4.4044E-03, increment(L2)= 1.2645E-03
+       Loading step (bc)=  1, Newton it.=  4, residual(L2)= 2.3107E-04, increment(L2)= 6.7776E-05
+       Loading step (bc)=  1, Newton it.=  5, residual(L2)= 1.2637E-05, increment(L2)= 3.1335E-06
+       Loading step (bc)=  1, Newton it.=  6, residual(L2)= 6.6772E-07, increment(L2)= 1.7487E-07
+       Loading step (bc)=  1, Newton it.=  7, residual(L2)= 3.5964E-08, increment(L2)= 8.3510E-09
+       Loading step (bc)=  1, Newton it.=  8, residual(L2)= 1.9240E-09, increment(L2)= 4.6874E-10
+       Loading step (bc)=  1, Newton it.=  9, residual(L2)= 1.0425E-10, increment(L2)= 2.3166E-11
+       Loading step (bc)=  1, Newton it.= 10, residual(L2)= 5.6472E-12, increment(L2)= 1.3239E-12
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+ ## Source/lmain.f: Forward solve terminated
+ ## Elapsed time for this step on the master core:4.2500E-01s (All core(s):2.1601E-01s)
+ ## Total elapsed time on the master core:        4.2900E-01s (All core(s):2.2401E-01s)

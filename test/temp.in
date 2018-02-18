@@ -1,0 +1,94 @@
+
+
+% MATERIAL PROPERTIES
+%  nGausPtsPerDirection rType rPara1 rPara2 exparaTVD1 exparaTVD2 s2_extrap1 s2_extrap2 stabFac  StabType LOGFLAG
+%  nGauss               ireg  alpha1 alpha2 beta1      beta2      Treg1      Treg2      tauMult  s  logflag
+materialProperties
+     4      2   0.0000000000e+00   1.0000000000e-07   1.0000000000e+00   1.0000000000e-04 1.000000e+00   1.0000000000e+00   1.0000000000e+00      1      0
+
+
+%NAME OF THE OUTPUT FILES (PREFIX ONLY - OPTIONAL)
+%  - nCores  : number of cores used by the solver (default nCores=1)
+%  - solveMethod: 1-> direct solver (default); 2-> iterative solver
+% nCores  solveMethod
+soloptions
+     1        1
+
+
+
+% PROBLEM TYPE
+pbty
+     2
+
+
+% NODES COORDINATES
+% nodeNumber x-cordinate y-cordinate
+coordinates
+     1   0.000000000000e+00     0.000000000000e+00   0.000000000000e+00 
+     2   1.000000000000e+01     0.000000000000e+00   0.000000000000e+00 
+     3   0.000000000000e+00     1.000000000000e+01   0.000000000000e+00 
+     4   1.000000000000e+01     1.000000000000e+01   0.000000000000e+00 
+     5   0.000000000000e+00     0.000000000000e+00  -1.000000000000e+01 
+     6   1.000000000000e+01     0.000000000000e+00  -1.000000000000e+01 
+     7   0.000000000000e+00     1.000000000000e+01  -1.000000000000e+01 
+     8   1.000000000000e+01     1.000000000000e+01  -1.000000000000e+01 
+
+ %element node numbers
+connectivity
+     1      5      7      6      1  
+     2      7      8      6      4  
+     3      7      6      1      4  
+     4      1      3      7      4  
+     5      1      4      6      2  
+
+
+% OPTIONS FOR THE FEM CODE
+%  - nelem  : number of elements for the solver
+%  - npoin  : number of points for the solver
+%  - ndime  : dimension of the space (2D, 3D, ...)
+%  - mnode  : maximum number of nodes per element
+%  - mdofn  : maximum number of DOFs per node
+%  - nmat   : number of materials
+%  - mprops : maximum number of properties per material
+%  - nmeas  : number of measured displacement cases
+%  - mpoinbc: number of Dirichlet points in BC
+%  - tol    : tolerance for the convergence of the non-linear solver
+%  - lsteps : number of steps for loading the material (any value is ok)
+%  - ncontin: number of steps for transitioning material properties (any value is ok)
+% nelem  npoin  ndime  mnode  mdofn  nmat  mprops  nmeas  mpoinbc  tol  lsteps  ncontin
+femoptions
+     5      8   3   4    4   1   11    1       4   1.000000000000e-12      1      1 
+
+
+% ELEMENT SETS
+% initialElement  finalElement  elementType  numberofNodesPerElement
+elementSet(s)
+     1      5    305      4
+
+
+% Boundary Conditions
+boundaries
+     4
+     1
+     1   0.0100000000e+00      1   0.0100000000e+00      1   0.0100000000e+00      0   0.0000000000e+00 
+     2
+     0   0.0000000000e+00      0   0.0000000000e+00      1   0.0000000000e+00      0   0.0000000000e+00 
+     3
+     1   0.0000000000e+00      0   0.0000000000e+00      1   0.0000000000e+00      0   0.0000000000e+00 
+     4
+     0   0.0000000000e+00      0   0.0000000000e+00      1   0.0000000000e+00      0   0.0000000000e+00 
+
+
+
+datn 
+2
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+     1       1.0000000000000      1       3.0000000000000 
+
+end

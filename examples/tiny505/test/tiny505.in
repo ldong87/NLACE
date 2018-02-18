@@ -1,0 +1,631 @@
+% this is an input file for NLACE created on 22-Feb-2010 13:35:53
+%  from syntheticSevan03.mat
+
+% NLACE is based on an optimization algorithm (L-BFGS-B)
+%  and a solver (Non-Linear elastic solver)
+
+% In this input file, there is 1 measurement of displacements
+
+% Every section begins with a keyword and the order of the sections/keywords does not
+%  matter. The keywords are words beginning with:'femo','opto','solo','outp','elem','optb',
+%  'datn','coor','conn','mate','boun','rest','date','meas' or 'end '.
+
+% Comments can be done between any section but no comment is allowed between the keyword
+%  and its attached data. It is recommended to use '%' for comments but it is
+%  not mandatory as any line beginning with letters different from the above-mentionned
+%  keywords will be assumed to be a comment.
+
+
+% type of problem
+pbtype
+1
+
+
+% PRINTING TIMING INFO (FOR PROFILING - OPTIONAL)
+timingPrint
+
+
+% OPTIONS FOR THE SOLVER (OPTIONAL)
+%  - nCores: number of cores used (default nCores=1)
+%  - solveMethod: 1-> direct solver (default); 2-> iterative solver
+% nCores solveMethod
+soloptions
+     1       1
+
+
+% NAME OF THE OUTPUT FILES (PREFIX ONLY - OPTIONAL)
+output
+tiny505.out
+
+
+% OPTIONS FOR THE OPTIMIZATION
+%  - iopt   : chosen optimization (1/2/3:sd/bfgs/newton)
+%  - niter  : maximum number of iterations
+%  - bfgsM  : value of parameter m in L-BFGS-B (usually 10<m<25)
+%  - noutput: interval for saving data
+%  - mnty   : maximum number of fields (types of variables) to be optimized (cf optbounds)
+% iopt niter  bfgsM  noutput  mnty
+optoptions
+2 10 10 1 2
+
+
+% OPTIONS FOR THE FEM CODE
+%  - nelem  : number of elements for the solver
+%  - npoin  : number of points for the solver
+%  - ndime  : dimension of the space (2D, 3D, ...)
+%  - mnode  : maximum number of nodes per element
+%  - mdofn  : maximum number of DOFs per node
+%  - nmat   : number of material properties
+%  - mprops : maximum number of properties per material
+%  - nmeas  : number of measured displacement cases
+%  - mpoinbc: number of Dirichlet points in BC
+%  - tol    : tolerance for the convergence of the non-linear solver
+%  - lsteps : number of steps for loading the material
+%  - ncontin: number of steps for transitioning material properties
+% nelem  npoin  ndime  mnode  mdofn  nmat  mprops  nmeas  mpoinbc  tol  lsteps  ncontin
+femoptions
+140 88 2 3 3 1 10 1 34 1.000000e-11 5 1
+
+
+% BOUNDS FOR THE L-BFGS-B OPTIMIZATION
+%  - lpa1: lower bound for parameter 1
+%  - upa1: upper bound for parameter 1
+%  - lpa2: lower bound for parameter 2
+%  - upa2: upper bound for parameter 2, etc
+% lpa1  upa1
+% lpa2  upa2 (there should be mnty lines)
+optbounds
+0.010000 4.000000
+1.000000 8.000000
+
+
+% ELEMENT SETS
+% initialElement  finalElement  elementType  numberOfNodesPerElement
+elementSet(s)
+1 140 505 3
+
+
+% MATERIAL PROPERTIES
+%  nGausPtsPerDir regType gammaReg shearModReg gammaTVDcst shearModTVDcst gammaTreg shearModTreg stabFactor activeStab
+materialProperties
+ 3 2 0.000000e+00 5.000000e-11 5.000000e-03 5.00e-03 0.001 0.001  1.000000 1
+
+
+% RESTART OPTION (commented by default)
+%restart
+yourFileNameHere
+
+
+% NODES COORDINATES
+% nodeNumber x-coordinate y-coordinate
+coordinates
+1 6.000000e-01 2.500000e-01
+2 6.500000e-01 2.500000e-01
+3 7.000000e-01 2.500000e-01
+4 7.500000e-01 2.500000e-01
+5 8.000000e-01 2.500000e-01
+6 8.500000e-01 2.500000e-01
+7 9.000000e-01 2.500000e-01
+8 9.500000e-01 2.500000e-01
+9 6.000000e-01 3.000000e-01
+10 6.500000e-01 3.000000e-01
+11 7.000000e-01 3.000000e-01
+12 7.500000e-01 3.000000e-01
+13 8.000000e-01 3.000000e-01
+14 8.500000e-01 3.000000e-01
+15 9.000000e-01 3.000000e-01
+16 9.500000e-01 3.000000e-01
+17 6.000000e-01 3.500000e-01
+18 6.500000e-01 3.500000e-01
+19 7.000000e-01 3.500000e-01
+20 7.500000e-01 3.500000e-01
+21 8.000000e-01 3.500000e-01
+22 8.500000e-01 3.500000e-01
+23 9.000000e-01 3.500000e-01
+24 9.500000e-01 3.500000e-01
+25 6.000000e-01 4.000000e-01
+26 6.500000e-01 4.000000e-01
+27 7.000000e-01 4.000000e-01
+28 7.500000e-01 4.000000e-01
+29 8.000000e-01 4.000000e-01
+30 8.500000e-01 4.000000e-01
+31 9.000000e-01 4.000000e-01
+32 9.500000e-01 4.000000e-01
+33 6.000000e-01 4.500000e-01
+34 6.500000e-01 4.500000e-01
+35 7.000000e-01 4.500000e-01
+36 7.500000e-01 4.500000e-01
+37 8.000000e-01 4.500000e-01
+38 8.500000e-01 4.500000e-01
+39 9.000000e-01 4.500000e-01
+40 9.500000e-01 4.500000e-01
+41 6.000000e-01 5.000000e-01
+42 6.500000e-01 5.000000e-01
+43 7.000000e-01 5.000000e-01
+44 7.500000e-01 5.000000e-01
+45 8.000000e-01 5.000000e-01
+46 8.500000e-01 5.000000e-01
+47 9.000000e-01 5.000000e-01
+48 9.500000e-01 5.000000e-01
+49 6.000000e-01 5.500000e-01
+50 6.500000e-01 5.500000e-01
+51 7.000000e-01 5.500000e-01
+52 7.500000e-01 5.500000e-01
+53 8.000000e-01 5.500000e-01
+54 8.500000e-01 5.500000e-01
+55 9.000000e-01 5.500000e-01
+56 9.500000e-01 5.500000e-01
+57 6.000000e-01 6.000000e-01
+58 6.500000e-01 6.000000e-01
+59 7.000000e-01 6.000000e-01
+60 7.500000e-01 6.000000e-01
+61 8.000000e-01 6.000000e-01
+62 8.500000e-01 6.000000e-01
+63 9.000000e-01 6.000000e-01
+64 9.500000e-01 6.000000e-01
+65 6.000000e-01 6.500000e-01
+66 6.500000e-01 6.500000e-01
+67 7.000000e-01 6.500000e-01
+68 7.500000e-01 6.500000e-01
+69 8.000000e-01 6.500000e-01
+70 8.500000e-01 6.500000e-01
+71 9.000000e-01 6.500000e-01
+72 9.500000e-01 6.500000e-01
+73 6.000000e-01 7.000000e-01
+74 6.500000e-01 7.000000e-01
+75 7.000000e-01 7.000000e-01
+76 7.500000e-01 7.000000e-01
+77 8.000000e-01 7.000000e-01
+78 8.500000e-01 7.000000e-01
+79 9.000000e-01 7.000000e-01
+80 9.500000e-01 7.000000e-01
+81 6.000000e-01 7.500000e-01
+82 6.500000e-01 7.500000e-01
+83 7.000000e-01 7.500000e-01
+84 7.500000e-01 7.500000e-01
+85 8.000000e-01 7.500000e-01
+86 8.500000e-01 7.500000e-01
+87 9.000000e-01 7.500000e-01
+88 9.500000e-01 7.500000e-01
+
+
+% ELEMENTS TOPOLOGY
+% elementNumber nodeNumbers ...
+connectivity
+ 1   1   2   9
+ 2   2   10   9
+ 3   2   3   10
+ 4   3   11   10
+ 5   3   4   11
+ 6   4   12   11
+ 7   4   5   12
+ 8   5   13   12
+ 9   5   6   13
+ 10   6   14   13
+ 11   6   7   14
+ 12   7   15   14
+ 13   7   8   15
+ 14   8   16   15
+ 15   9   10   17
+ 16   10   18   17
+ 17   10   11   18
+ 18   11   19   18
+ 19   11   12   19
+ 20   12   20   19
+ 21   12   13   20
+ 22   13   21   20
+ 23   13   14   21
+ 24   14   22   21
+ 25   14   15   22
+ 26   15   23   22
+ 27   15   16   23
+ 28   16   24   23
+ 29   17   18   25
+ 30   18   26   25
+ 31   18   19   26
+ 32   19   27   26
+ 33   19   20   27
+ 34   20   28   27
+ 35   20   21   28
+ 36   21   29   28
+ 37   21   22   29
+ 38   22   30   29
+ 39   22   23   30
+ 40   23   31   30
+ 41   23   24   31
+ 42   24   32   31
+ 43   25   26   33
+ 44   26   34   33
+ 45   26   27   34
+ 46   27   35   34
+ 47   27   28   35
+ 48   28   36   35
+ 49   28   29   36
+ 50   29   37   36
+ 51   29   30   37
+ 52   30   38   37
+ 53   30   31   38
+ 54   31   39   38
+ 55   31   32   39
+ 56   32   40   39
+ 57   33   34   41
+ 58   34   42   41
+ 59   34   35   42
+ 60   35   43   42
+ 61   35   36   43
+ 62   36   44   43
+ 63   36   37   44
+ 64   37   45   44
+ 65   37   38   45
+ 66   38   46   45
+ 67   38   39   46
+ 68   39   47   46
+ 69   39   40   47
+ 70   40   48   47
+ 71   41   42   49
+ 72   42   50   49
+ 73   42   43   50
+ 74   43   51   50
+ 75   43   44   51
+ 76   44   52   51
+ 77   44   45   52
+ 78   45   53   52
+ 79   45   46   53
+ 80   46   54   53
+ 81   46   47   54
+ 82   47   55   54
+ 83   47   48   55
+ 84   48   56   55
+ 85   49   50   57
+ 86   50   58   57
+ 87   50   51   58
+ 88   51   59   58
+ 89   51   52   59
+ 90   52   60   59
+ 91   52   53   60
+ 92   53   61   60
+ 93   53   54   61
+ 94   54   62   61
+ 95   54   55   62
+ 96   55   63   62
+ 97   55   56   63
+ 98   56   64   63
+ 99   57   58   65
+ 100   58   66   65
+ 101   58   59   66
+ 102   59   67   66
+ 103   59   60   67
+ 104   60   68   67
+ 105   60   61   68
+ 106   61   69   68
+ 107   61   62   69
+ 108   62   70   69
+ 109   62   63   70
+ 110   63   71   70
+ 111   63   64   71
+ 112   64   72   71
+ 113   65   66   73
+ 114   66   74   73
+ 115   66   67   74
+ 116   67   75   74
+ 117   67   68   75
+ 118   68   76   75
+ 119   68   69   76
+ 120   69   77   76
+ 121   69   70   77
+ 122   70   78   77
+ 123   70   71   78
+ 124   71   79   78
+ 125   71   72   79
+ 126   72   80   79
+ 127   73   74   81
+ 128   74   82   81
+ 129   74   75   82
+ 130   75   83   82
+ 131   75   76   83
+ 132   76   84   83
+ 133   76   77   84
+ 134   77   85   84
+ 135   77   78   85
+ 136   78   86   85
+ 137   78   79   86
+ 138   79   87   86
+ 139   79   80   87
+ 140   80   88   87
+
+
+% BOUNDARY CONDITIONS
+%  In this section the number of lines is equal to one plus twice the number of nodes on
+%  the boundaries of the computational domain times the number of measurement sets. All
+%  the nodal dirichlet boundary conditions for one measurement set are given together
+%  before another measurement set is written.
+%  For every measurement set, the first line is the number of nodes on the boundary.
+%  The following lines work by pairs: the first line provides the node number and the
+%  second line indicates the type of boundary condition.
+%  On every second line, the numbers work by pairs: first is an integer set to 0 if the
+%  Dirichlet boundary is inactive and set to 1 if it is active. Inactive means that a
+%  homogeneous Neuman condition will be use instead of enforcing a displacement with a
+%  Dirichlet boundary. The second number of the pair is the value of the enforced
+%  displacement through the Dirichlet boundary condition.
+%  Here, the first pair is the displacement along the lateral direction, the second
+%  pair is the displacement along the axial direction and, when there is a third pair,
+%  it corresponds to a measure of the pressure inside the material.
+boundaries
+ 34
+  1
+   0    0.000160   1    0.001523   0    0.004296
+  2
+   0    0.000236   1    0.001494   0    0.004570
+  3
+   1    0.000378   1    0.001478   0    0.004786
+  4
+   0    0.000510   1    0.001375   0    0.004964
+  5
+   0    0.000599   1    0.001371   0    0.005070
+  6
+   0    0.000716   1    0.001432   0    0.004913
+  7
+   0    0.000828   1    0.001397   0    0.004446
+  8
+   0    0.000985   1    0.001516   0    0.004025
+  81
+   0    0.000189   1    0.000512   0    0.004364
+  82
+   0    0.000252   1    0.000459   0    0.004466
+  83
+   0    0.000396   1    0.000547   0    0.004722
+  84
+   0    0.000441   1    0.000589   0    0.004953
+  85
+   0    0.000592   1    0.000595   0    0.004970
+  86
+   0    0.000739   1    0.000648   0    0.004831
+  87
+   0    0.000906   1    0.000520   0    0.004503
+  88
+   0    0.000978   1    0.000502   0    0.004000
+  9
+   0    0.000180   1    0.001386   0    0.004181
+  17
+   0    0.000176   1    0.001332   0    0.003886
+  25
+   0    0.000218   1    0.001242   0    0.003358
+  33
+   0    0.000265   1    0.001171   0    0.002891
+  41
+   0    0.000237   1    0.001019   0    0.002656
+  49
+   0    0.000228   1    0.000893   0    0.002880
+  57
+   0    0.000186   1    0.000784   0    0.003455
+  65
+   0    0.000195   1    0.000660   0    0.003900
+  73
+   0    0.000160   1    0.000624   0    0.004221
+  16
+   0    0.000981   1    0.001429   0    0.004029
+  24
+   0    0.000885   1    0.001295   0    0.004054
+  32
+   0    0.000785   1    0.001217   0    0.003984
+  40
+   0    0.000810   1    0.001065   0    0.003871
+  48
+   0    0.000640   1    0.000995   0    0.003628
+  56
+   0    0.000801   1    0.000956   0    0.003770
+  64
+   0    0.000779   1    0.000807   0    0.003996
+  72
+   0    0.000867   1    0.000712   0    0.004055
+  80
+   0    0.000940   1    0.000598   0    0.004022
+
+
+% NODAL VALUE OF A FIELD
+%  This section has as many lines as there are nodes plus one; the order for the
+%  nodal data is the same as in section 'coor'.
+%  The first line is the number of parameters at every node.
+%  On every subsequent line, the numbers work by pairs: first is an integer set to
+%  0 if the parameter is inactive (not optimized and kept to its initial value) or
+%  set to 1 if the parameter is an optimization variable. The second number of the
+%  pair is the initial value of the parameter.
+%  Here, these parameters describe the stress-strain relation in the material, the
+%  first parameter is gamma (non-linearity) and the second is mu (shear modulus) of
+%  the Veronda-Westman model.
+datn
+ 2
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+  0    0.000000   1    1.050000
+
+
+% MEASURED DISPLACEMENTS
+%  This section has a number of lines equal to the number of nodes times the number of
+%  measurement sets used for the optimization. All the nodal displacements for one
+%  measurement set are given together before another measurement set is written. Within
+%  every measurement set, the displacements appear in the same order as the nodes in
+%  section 'coor'.
+%  On every line, the numbers work by pairs: first is a real number that is a weight
+%  for the associated displacement when computing the objective function. The second
+%  number of the pair is the measured displacement.
+%  Here, the first pair is the displacement along the lateral direction, the second
+%  pair is the displacement along the axial direction and, when there is a third pair,
+%  it corresponds to a measure of the pressure inside the material.
+measuredDisplacements
+   0.000    0.000160    1.000    0.001523    0.000    0.004296
+   0.000    0.000236    1.000    0.001494    0.000    0.004181
+   0.000    0.000378    1.000    0.001478    0.000    0.003886
+   0.000    0.000510    1.000    0.001375    0.000    0.003358
+   0.000    0.000599    1.000    0.001371    0.000    0.002891
+   0.000    0.000716    1.000    0.001432    0.000    0.002656
+   0.000    0.000828    1.000    0.001397    0.000    0.002880
+   0.000    0.000985    1.000    0.001516    0.000    0.003455
+   0.000    0.000180    1.000    0.001386    0.000    0.003900
+   0.000    0.000239    1.000    0.001430    0.000    0.004221
+   0.000    0.000414    1.000    0.001321    0.000    0.004364
+   0.000    0.000416    1.000    0.001309    0.000    0.004570
+   0.000    0.000588    1.000    0.001232    0.000    0.004406
+   0.000    0.000734    1.000    0.001342    0.000    0.004195
+   0.000    0.000806    1.000    0.001369    0.000    0.003509
+   0.000    0.000981    1.000    0.001429    0.000    0.002408
+   0.000    0.000176    1.000    0.001332    0.000    0.001940
+   0.000    0.000333    1.000    0.001283    0.000    0.002461
+   0.000    0.000351    1.000    0.001247    0.000    0.003620
+   0.000    0.000374    1.000    0.001174    0.000    0.004163
+   0.000    0.000556    1.000    0.001187    0.000    0.004476
+   0.000    0.000667    1.000    0.001184    0.000    0.004466
+   0.000    0.000767    1.000    0.001295    0.000    0.004786
+   0.000    0.000885    1.000    0.001295    0.000    0.004805
+   0.000    0.000218    1.000    0.001242    0.000    0.004937
+   0.000    0.000355    1.000    0.001188    0.000    0.004255
+   0.000    0.000439    1.000    0.001176    0.000    0.002316
+   0.000    0.000502    1.000    0.001100    0.000    0.001887
+   0.000    0.000504    1.000    0.001038    0.000    0.002385
+   0.000    0.000575    1.000    0.001109    0.000    0.004285
+   0.000    0.000677    1.000    0.001102    0.000    0.004912
+   0.000    0.000785    1.000    0.001217    0.000    0.004837
+   0.000    0.000265    1.000    0.001171    0.000    0.004722
+   0.000    0.000409    1.000    0.001076    0.000    0.004964
+   0.000    0.000520    1.000    0.001045    0.000    0.005381
+   0.000    0.000511    1.000    0.001009    0.000    0.006069
+   0.000    0.000549    1.000    0.001109    0.000    0.006071
+   0.000    0.000582    1.000    0.001029    0.000    0.004274
+   0.000    0.000587    1.000    0.001063    0.000    0.004922
+   0.000    0.000810    1.000    0.001065    0.000    0.004253
+   0.000    0.000237    1.000    0.001019    0.000    0.006042
+   0.000    0.000357    1.000    0.001019    0.000    0.005928
+   0.000    0.000539    1.000    0.001021    0.000    0.005382
+   0.000    0.000427    1.000    0.000931    0.000    0.004953
+   0.000    0.000530    1.000    0.001042    0.000    0.005070
+   0.000    0.000613    1.000    0.001039    0.000    0.005526
+   0.000    0.000618    1.000    0.000984    0.000    0.006500
+   0.000    0.000640    1.000    0.000995    0.000    0.006483
+   0.000    0.000228    1.000    0.000893    0.000    0.004172
+   0.000    0.000342    1.000    0.000946    0.000    0.004607
+   0.000    0.000519    1.000    0.000982    0.000    0.004151
+   0.000    0.000462    1.000    0.000978    0.000    0.006493
+   0.000    0.000510    1.000    0.000954    0.000    0.006536
+   0.000    0.000602    1.000    0.000932    0.000    0.005542
+   0.000    0.000597    1.000    0.000923    0.000    0.004970
+   0.000    0.000801    1.000    0.000956    0.000    0.004913
+   0.000    0.000186    1.000    0.000784    0.000    0.005205
+   0.000    0.000310    1.000    0.000758    0.000    0.005777
+   0.000    0.000409    1.000    0.000828    0.000    0.005896
+   0.000    0.000536    1.000    0.000900    0.000    0.004728
+   0.000    0.000525    1.000    0.000874    0.000    0.005215
+   0.000    0.000593    1.000    0.000925    0.000    0.004687
+   0.000    0.000697    1.000    0.000924    0.000    0.005953
+   0.000    0.000779    1.000    0.000807    0.000    0.005918
+   0.000    0.000195    1.000    0.000660    0.000    0.005288
+   0.000    0.000272    1.000    0.000770    0.000    0.004831
+   0.000    0.000378    1.000    0.000823    0.000    0.004446
+   0.000    0.000481    1.000    0.000859    0.000    0.004591
+   0.000    0.000557    1.000    0.000885    0.000    0.004759
+   0.000    0.000659    1.000    0.000807    0.000    0.004390
+   0.000    0.000834    1.000    0.000787    0.000    0.003382
+   0.000    0.000867    1.000    0.000712    0.000    0.003301
+   0.000    0.000160    1.000    0.000624    0.000    0.003378
+   0.000    0.000257    1.000    0.000567    0.000    0.004421
+   0.000    0.000453    1.000    0.000654    0.000    0.004846
+   0.000    0.000460    1.000    0.000709    0.000    0.004596
+   0.000    0.000596    1.000    0.000734    0.000    0.004503
+   0.000    0.000729    1.000    0.000727    0.000    0.004025
+   0.000    0.000804    1.000    0.000630    0.000    0.004029
+   0.000    0.000940    1.000    0.000598    0.000    0.004054
+   0.000    0.000189    1.000    0.000512    0.000    0.003984
+   0.000    0.000252    1.000    0.000459    0.000    0.003871
+   0.000    0.000396    1.000    0.000547    0.000    0.003628
+   0.000    0.000441    1.000    0.000589    0.000    0.003770
+   0.000    0.000592    1.000    0.000595    0.000    0.003996
+   0.000    0.000739    1.000    0.000648    0.000    0.004055
+   0.000    0.000906    1.000    0.000520    0.000    0.004022
+   0.000    0.000978    1.000    0.000502    0.000    0.004000
+
+
+end

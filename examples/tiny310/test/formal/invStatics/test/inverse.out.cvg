@@ -1,0 +1,38 @@
+ #This file helps checking about the convergence of the optimization algorithm
+ #    by printing infos related to the values of the objective function and
+ #    its components.
+ #- Every line describes an iteration of the optimization algorithm,
+ #- on every line there are x*2+2+4 real numbers where x equals the number
+ #    of measured fields used,
+ #- the first 2 numbers on a line are the dataMatch and the forceMatch terms
+ #    for the first measurement used,
+ #- if x>1, numbers at position 3 and 4 are the dataMatch and the forceMatch
+ #    terms for the second measurement
+ #- etc...
+ #- the following numbers are: the regularization term for each measurement
+ #    and the objective function value,
+ #- followed by the L2 norms of parameter1, its gradient, parameter2 and its
+ #    gradient.
+ #note by JFD: gnuplot is convenient to print a column
+ #             plot "*.out.cvg" u 3
+ #             replot "*.out.cvg" u 6
+  2.48163E+02  0.00000E+00  1.10743E-10  2.48162659847E+02  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  2.51425E+02  0.00000E+00  1.10743E-10  2.51425480158E+02  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.39529E+00  0.00000E+00  1.12994E-10  1.39529030607E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.27843E+00  0.00000E+00  1.33806E-10  1.27842606178E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.18686E+00  0.00000E+00  1.80807E-10  1.18685863357E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.10554E+00  0.00000E+00  2.59859E-10  1.10554368582E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09999E+00  0.00000E+00  2.70145E-10  1.09999276552E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09976E+00  0.00000E+00  2.69946E-10  1.09975671533E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09953E+00  0.00000E+00  2.69518E-10  1.09952954009E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09888E+00  0.00000E+00  2.68896E-10  1.09887561935E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09765E+00  0.00000E+00  2.69455E-10  1.09765285025E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09591E+00  0.00000E+00  2.75263E-10  1.09591059406E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09455E+00  0.00000E+00  2.86588E-10  1.09454881167E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86517E-10  1.09454454455E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86416E-10  1.09454449983E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86407E-10  1.09454449948E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86400E-10  1.09454449965E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86406E-10  1.09454449948E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86406E-10  1.09454449948E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00
+  1.09454E+00  0.00000E+00  2.86406E-10  1.09454449948E+00  2.82843E+00  0.00000E+00  8.48528E+00  0.00000E+00

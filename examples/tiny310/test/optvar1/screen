@@ -1,0 +1,471 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Mon Sep  1 23:16:42 2014
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of elements ....................           7
+ number of points    ...................           8
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           3
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........           4
+ tolerance for Newton iteration.........      1.0000E-12
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ prefix for the output file ............   inverse.out
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve an inverse problem: problemType=           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........        2000
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          10
+ maximum number of fields to optimize...           5
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      0.0000E+00
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................           1
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................           4
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:8.0000E-03s (All core(s):8.0000E-03s)
+ ## Total elapsed time on the master core:        8.0000E-03s (All core(s):2.4001E-02s)
+  
+  ++ Running the inverse code (optimization driver)
+  ++ L-BFGS-B selected
+  
+  ++ iteration X0: loading the material with  the initial guess of the state vector
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 0.0000E+00, increment(L2)= 0.0000E+00
+    -- Primal problem done on master core in       2.1000E-02s (All core(s) 1.6001E-02s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0881E-02 and ||g||_2=3.3264E+00
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:2.9000E-02s (All core(s):2.0001E-02s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.4000E+01, increment(L2) = 5.0161E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.2534E+01, increment(L2) = 8.5286E-01
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 2.5257E+00, increment(L2) = 9.0549E-02
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 2.0520E-02, increment(L2) = 7.0342E-04
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 1.2947E-06, increment(L2) = 4.6183E-08
+       Loading step (mat):  1, Newton it.:  6, residual(L2) = 1.2773E-13, increment(L2) = 6.7514E-15
+    -- Primal problem done on master core in       2.1000E-02s (All core(s) 2.0002E-02s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=6.5569E+02 and ||g||_2=3.0805E+02
+  ++ Elapsed time for this iteration on the master core:2.2000E-02s (All core(s):2.0002E-02s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.3461E+01, increment(L2) = 3.2207E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.7185E+01, increment(L2) = 8.6791E-01
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.2602E-01, increment(L2) = 3.4244E-02
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 9.7231E-04, increment(L2) = 4.9660E-05
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 2.0038E-09, increment(L2) = 9.1759E-11
+       Loading step (mat):  1, Newton it.:  6, residual(L2) = 1.4418E-13, increment(L2) = 5.6426E-15
+    -- Primal problem done on master core in       6.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=8.6575E-05 and ||g||_2=9.9328E-02
+  ++ Elapsed time for this iteration on the master core:6.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration            1
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.3717E-02, increment(L2) = 7.6968E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.0605E-07, increment(L2) = 1.7595E-08
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 3.6241E-14, increment(L2) = 2.9900E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=5.5390E-05 and ||g||_2=3.5431E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration            2
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.5516E-03, increment(L2) = 2.2017E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.1398E-08, increment(L2) = 1.2952E-09
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.1204E-13, increment(L2) = 5.3793E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=4.7065E-05 and ||g||_2=3.3487E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration            3
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1489E-02, increment(L2) = 9.9632E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.7714E-07, increment(L2) = 3.6353E-08
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.0071E-13, increment(L2) = 3.5551E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=2.2308E-05 and ||g||_2=2.8321E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0010E-03s)
+   
+  ++ iteration            4
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.1998E-03, increment(L2) = 4.0358E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.2581E-07, increment(L2) = 7.2963E-09
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.1026E-13, increment(L2) = 5.0068E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.7447E-05 and ||g||_2=6.9358E-03
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration            5
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.8429E-03, increment(L2) = 1.1641E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.0744E-08, increment(L2) = 5.9537E-10
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 9.3225E-14, increment(L2) = 3.0007E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.6695E-05 and ||g||_2=7.0420E-03
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration            6
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.8390E-03, increment(L2) = 1.1849E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.1723E-08, increment(L2) = 6.2575E-10
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 9.3817E-14, increment(L2) = 4.0141E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.5769E-05 and ||g||_2=1.3132E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration            7
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.0909E-03, increment(L2) = 2.4829E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 5.9064E-08, increment(L2) = 2.9184E-09
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.8151E-14, increment(L2) = 6.2496E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.3471E-05 and ||g||_2=2.3618E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration            8
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.8617E-03, increment(L2) = 4.2302E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.0064E-07, increment(L2) = 9.0852E-09
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.0653E-13, increment(L2) = 5.2283E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=9.2218E-06 and ||g||_2=3.2746E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration            9
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1735E-02, increment(L2) = 5.4434E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.8105E-07, increment(L2) = 1.6136E-08
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.2590E-13, increment(L2) = 4.6420E-15
+    -- Primal problem done on master core in       3.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.7074E-06 and ||g||_2=2.9850E-02
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0010E-03s)
+   
+  ++ iteration           10
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 8.6967E-03, increment(L2) = 3.1551E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.3018E-07, increment(L2) = 5.4179E-09
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.0795E-13, increment(L2) = 4.2880E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0840E-07 and ||g||_2=7.1877E-03
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:8.0000E-03s (All core(s):8.0000E-03s)
+   
+  ++ iteration           11
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.6980E-03, increment(L2) = 1.0417E-04
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.6810E-09, increment(L2) = 4.4372E-10
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 6.3747E-14, increment(L2) = 4.6271E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.0406E-08 and ||g||_2=8.1111E-04
+  ++ Elapsed time for this iteration on the master core:4.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           12
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.0958E-04, increment(L2) = 3.1131E-05
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.0953E-09, increment(L2) = 5.7053E-11
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 1.2147E-13, increment(L2) = 3.5575E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.0971E-10 and ||g||_2=2.8082E-05
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           13
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.8986E-05, increment(L2) = 4.0922E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.0239E-11, increment(L2) = 8.4799E-13
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.7626E-14, increment(L2) = 4.1895E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=9.1134E-12 and ||g||_2=5.0430E-05
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0010E-03s)
+   
+  ++ iteration           14
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3322E-05, increment(L2) = 1.3598E-06
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.6305E-12, increment(L2) = 7.5742E-14
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 7.9221E-14, increment(L2) = 3.2363E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=1.9614E-11 and ||g||_2=6.0879E-05
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           14
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.3983E-05, increment(L2) = 8.1527E-07
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 5.2512E-13, increment(L2) = 2.6923E-14
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=6.5652E-13 and ||g||_2=6.3073E-06
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           15
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.3690E-06, increment(L2) = 2.8878E-07
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.2746E-13, increment(L2) = 6.2901E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0742E-14 and ||g||_2=1.2838E-07
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           16
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.6208E-08, increment(L2) = 3.0275E-09
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.3463E-13, increment(L2) = 3.9919E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=1.2335E-09
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           17
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.5875E-10, increment(L2) = 2.8371E-11
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 7.4496E-14, increment(L2) = 3.6040E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.6805E-12
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.3305E-12, increment(L2) = 2.4959E-13
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 6.0977E-14, increment(L2) = 5.6544E-15
+    -- Primal problem done on master core in       2.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=1.3239E-13
+  ++ Elapsed time for this iteration on the master core:3.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.0171E-12, increment(L2) = 2.3534E-13
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.0051E-13, increment(L2) = 3.7590E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.4880E-12
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.8605E-13, increment(L2) = 1.3097E-14
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 4.0010E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.6444E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-03s (All core(s):4.0010E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.6335E-14, increment(L2) = 2.5623E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.6429E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.4412E-13, increment(L2) = 6.6146E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.5709E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.3757E-13, increment(L2) = 6.4441E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.6273E-12
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.4832E-14, increment(L2) = 2.2671E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.6266E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 8.7894E-14, increment(L2) = 3.7854E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.5634E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-03s (All core(s):0.0000E+00s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.3633E-14, increment(L2) = 3.9742E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 4.0000E-03s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            0.0000E+00s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.6055E-12
+  ++ Elapsed time for this iteration on the master core:1.0000E-03s (All core(s):4.0000E-03s)
+   
+  ++ iteration           18
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           0.0000E+00s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 8.8772E-14, increment(L2) = 4.5485E-15
+    -- Primal problem done on master core in       1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Dual/adjoint problem done on master core in 0.0000E+00s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0631E-14 and ||g||_2=2.5840E-12
+  ++ Elapsed time for this iteration on the master core:2.0000E-03s (All core(s):0.0000E+00s)
+ REL_R_O_F =  -3.52087264361049752E-022 , factr =   1.00000000000000008E-015 , epsmch =   2.22044604925031308E-016 iter =           19
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N   Tit  Tnf  Tnint  Skip  Nact     Projg        F
+    4   19   31     19     0     0   1.689D-12   3.063D-14
+  F =  3.06306059503868362E-014
+
+CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 9.201E-02 seconds.
+
+ Total User time 1.120E-01 seconds.
+
+ the opt algo has terminated before the NLACE criteria said so ...
+ ---------------------
+ Post processor format: paraview
+ ---------------------

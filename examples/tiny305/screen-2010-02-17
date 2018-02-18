@@ -1,0 +1,1010 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Wed Feb 17 15:51:19 2010
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ prefix for the output file ............   tiny305-2010-02-17.out
+  
+ maximum number of BFGS iterations......          20
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          10
+ maximum number of fields to optimize...           2
+  
+ number of elements ....................          90
+ number of points    ...................          48
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           1
+ max. number of properties per material.           7
+ number of measurements.................           1
+ max. num of nodes per bc set...........          44
+ tolerance for Newton iteration.........      1.0000E-11
+ number of loadings.....................           5
+ number of incremental material steps...           1
+  
+ number of Cores used by the solver ....           1
+
+ element properties: 
+ linear elasticity (3D,2DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2:none/H1/TVD) ...........           2
+ regularization parameter 1 ............      1.0000E-05
+ regularization parameter 2 ............      1.0000E-05
+ extra parameter (TVD) .................      1.0000E-04
+ stabilization factor ..................      1.0000E+00
+ stabilization terms 0/1 off/on ........           1
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:1.3800E-02s (All 2 core(s):1.0000E-03s)
+ ## Total elapsed time on the master core:        1.3800E-02s (All 2 core(s):3.9980E-03s)
+
+  ++ RUNNING THE L-BFGS-B CODE
+
+     Note: if iteration X0 leads to an error, try to increase the number of loading steps or
+     try to increase the tolerance or try to provide a better initialization of the material
+     properties or try to impose smoother boundary condition (if DBCs are enforced).
+
+  ++ At L-BFGS-B X0         0 variables are exactly at the bounds
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** LoadIncrement done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.5000E-03s (All 2 core(s):1.9990E-03s)
+        oo factorization done in:    8.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           2.6000E-03s (All 2 core(s):2.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 2.7408E-01, increment(L2)= 4.0142E-02
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 2.8453E-04, increment(L2)= 1.9384E-05
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  3, residual(L2)= 8.0473E-10, increment(L2)= 4.5045E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  4, residual(L2)= 3.9005E-14, increment(L2)= 2.5045E-05
+      ** LoadIncrement done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  2, Newton it.=  1, residual(L2)= 2.7420E-01, increment(L2)= 4.0141E-02
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  2, Newton it.=  2, residual(L2)= 2.8446E-04, increment(L2)= 1.9379E-05
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  2, Newton it.=  3, residual(L2)= 8.0337E-10, increment(L2)= 1.5789E-08
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  2, Newton it.=  4, residual(L2)= 4.2926E-14, increment(L2)= 7.0714E-05
+      ** LoadIncrement done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  3, Newton it.=  1, residual(L2)= 2.7432E-01, increment(L2)= 4.0141E-02
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  3, Newton it.=  2, residual(L2)= 2.8439E-04, increment(L2)= 1.9374E-05
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.9990E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  3, Newton it.=  3, residual(L2)= 8.0202E-10, increment(L2)= 7.2048E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  3, Newton it.=  4, residual(L2)= 3.9807E-14, increment(L2)= 6.0187E-05
+      ** LoadIncrement done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  4, Newton it.=  1, residual(L2)= 2.7444E-01, increment(L2)= 4.0141E-02
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  4, Newton it.=  2, residual(L2)= 2.8432E-04, increment(L2)= 1.9370E-05
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.3000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           2.1000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  4, Newton it.=  3, residual(L2)= 8.0068E-10, increment(L2)= 2.1028E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  4, Newton it.=  4, residual(L2)= 3.7285E-14, increment(L2)= 1.4496E-04
+      ** LoadIncrement done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  5, Newton it.=  1, residual(L2)= 2.7457E-01, increment(L2)= 4.0141E-02
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   1.0000E-04s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  5, Newton it.=  2, residual(L2)= 2.8425E-04, increment(L2)= 1.9365E-05
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  5, Newton it.=  3, residual(L2)= 7.9934E-10, increment(L2)= 1.8605E-07
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (bc)=  5, Newton it.=  4, residual(L2)= 3.5911E-14, increment(L2)= 7.9896E-05
+    -- Primal problem done in                 3.4795E-01
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:4.3870E-01s (All 2 core(s):3.5495E-01s)
+     Note: if iteration 0 leads to an error, try to narrow the L-BFGS-B bounds or
+     try to change the tolerance or try to increase the regularization
+
+
+  ++ At L-BFGS-B iterate    0    f=  1.90997D-04    |proj g|=  4.23346D-05 (cf *.ite)
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 6.0148E-06, increment(L2) = 2.5023E-07
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 1.1258E-13, increment(L2) = 4.1376E-05
+    -- Primal problem done in                 3.5994E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8300E-02s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate    1    f=  1.90995D-04    |proj g|=  5.46522D-05
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0202E-06, increment(L2) = 3.1655E-08
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.5715E-14, increment(L2) = 9.3604E-05
+    -- Primal problem done in                 3.4994E-02
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.8993E-02s)
+
+  ++ At L-BFGS-B iterate    2    f=  1.90994D-04    |proj g|=  8.76647D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.9854E-07, increment(L2) = 2.3366E-08
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.5263E-14, increment(L2) = 3.0331E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.9990E-03
+    -- Gradient build in                      2.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8100E-02s (All 2 core(s):4.0994E-02s)
+
+  ++ At L-BFGS-B iterate    3    f=  1.90994D-04    |proj g|=  6.31482D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 8.9918E-07, increment(L2) = 6.1689E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.4192E-14, increment(L2) = 5.5084E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      2.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate    4    f=  1.90993D-04    |proj g|=  7.91449D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0318E-06, increment(L2) = 7.3239E-08
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.9569E-14, increment(L2) = 8.2817E-05
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      9.9900E-04
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8100E-02s (All 2 core(s):3.7994E-02s)
+
+  ++ At L-BFGS-B iterate    5    f=  1.90993D-04    |proj g|=  8.94541D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.7039E-06, increment(L2) = 1.0938E-07
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):4.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.8322E-14, increment(L2) = 2.0544E-04
+    -- Primal problem done in                 3.6995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.9995E-02s)
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):0.0000E+00s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.6187E-07, increment(L2) = 6.1687E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.7559E-14, increment(L2) = 4.0535E-04
+    -- Primal problem done in                 3.3995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.6994E-02s)
+
+  ++ At L-BFGS-B iterate    6    f=  1.90993D-04    |proj g|=  6.85249D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.9990E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.1291E-07, increment(L2) = 2.1236E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.1428E-14, increment(L2) = 2.1616E-05
+    -- Primal problem done in                 3.3995E-02
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      9.9900E-04
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.7994E-02s)
+
+  ++ At L-BFGS-B iterate    7    f=  1.90993D-04    |proj g|=  1.70109D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1311E-07, increment(L2) = 7.5063E-09
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.8924E-14, increment(L2) = 1.7272E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           3.0000E-03
+    -- Gradient build in                      1.9990E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8100E-02s (All 2 core(s):4.0994E-02s)
+
+  ++ At L-BFGS-B iterate    8    f=  1.90993D-04    |proj g|=  1.20577D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    5.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 9.4416E-08, increment(L2) = 7.0531E-09
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.9029E-14, increment(L2) = 6.4098E-04
+    -- Primal problem done in                 3.3995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           3.0000E-03
+    -- Gradient build in                      1.9990E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate    9    f=  1.90993D-04    |proj g|=  1.15786D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):0.0000E+00s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.9585E-07, increment(L2) = 1.4141E-08
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):9.9900E-04s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.5334E-14, increment(L2) = 4.1285E-04
+    -- Primal problem done in                 3.3994E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.6994E-02s)
+
+  ++ At L-BFGS-B iterate   10    f=  1.90993D-04    |proj g|=  2.26941D-06
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 7.5071E-08, increment(L2) = 5.4699E-09
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 1.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       1.0000E-04s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.3109E-14, increment(L2) = 3.7617E-04
+    -- Primal problem done in                 3.3995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:1.1720E-01s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate   11    f=  1.90993D-04    |proj g|=  5.15733D-07
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5300E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.9000E-03s (All 2 core(s):9.9900E-04s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.9911E-08, increment(L2) = 4.0934E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.0651E-14, increment(L2) = 5.0873E-04
+    -- Primal problem done in                 3.2995E-02
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      9.9900E-04
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8300E-02s (All 2 core(s):3.6994E-02s)
+
+  ++ At L-BFGS-B iterate   12    f=  1.90993D-04    |proj g|=  3.89144D-07
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1376E-07, increment(L2) = 8.0265E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.9323E-14, increment(L2) = 1.1138E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.1000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.9990E-03
+    -- Gradient build in                      2.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):4.0994E-02s)
+
+  ++ At L-BFGS-B iterate   13    f=  1.90993D-04    |proj g|=  2.51740D-07
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.4962E-08, increment(L2) = 2.1103E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.3607E-14, increment(L2) = 2.3793E-05
+    -- Primal problem done in                 3.5995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      2.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.9994E-02s)
+
+  ++ At L-BFGS-B iterate   14    f=  1.90993D-04    |proj g|=  7.14702D-07
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.0648E-08, increment(L2) = 1.6188E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.0911E-14, increment(L2) = 2.2675E-04
+    -- Primal problem done in                 3.5995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      9.9900E-04
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate   15    f=  1.90993D-04    |proj g|=  5.11145D-08
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):0.0000E+00s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.0140E-08, increment(L2) = 6.6060E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.9990E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.0218E-14, increment(L2) = 2.1027E-04
+    -- Primal problem done in                 3.3995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.0000E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.6995E-02s)
+
+  ++ At L-BFGS-B iterate   16    f=  1.90993D-04    |proj g|=  2.49790D-08
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4997E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):2.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.7645E-08, increment(L2) = 5.4159E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.9848E-14, increment(L2) = 3.0231E-04
+    -- Primal problem done in                 3.3995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.7994E-02s)
+
+  ++ At L-BFGS-B iterate   17    f=  1.90993D-04    |proj g|=  1.15864D-08
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 1.0000E-03
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):9.9900E-04s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.5019E-08, increment(L2) = 2.9770E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):2.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):3.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.4154E-14, increment(L2) = 1.1247E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.9990E-03
+    -- Gradient build in                      2.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):4.0994E-02s)
+
+  ++ At L-BFGS-B iterate   18    f=  1.90993D-04    |proj g|=  2.16487D-08
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.4998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):2.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.3758E-09, increment(L2) = 4.2137E-08
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 3.5230E-14, increment(L2) = 3.1030E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           1.9990E-03
+    -- Gradient build in                      2.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate   19    f=  1.90993D-04    |proj g|=  3.36311D-08
+    -- Updating state vector and gradient,  1 measurements are used
+    -- Initialize (inicsr+init_idnum) done in 0.0000E+00
+      ** ContinIncrement done in: 0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):9.9900E-04s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):1.0000E-03s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.9990E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 3.6818E-08, increment(L2) = 2.3646E-09
+      ** T. Stif. + RHS built in: 1.5400E-02s (All 2 core(s):1.5998E-02s)
+      ** residual(1) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** solve done in:           1.8000E-03s (All 2 core(s):1.0000E-03s)
+      ** residual(2) done in:     0.0000E+00s (All 2 core(s):0.0000E+00s)
+      ** update_primal done in:   0.0000E+00s (All 2 core(s):0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 4.1209E-14, increment(L2) = 2.0170E-04
+    -- Primal problem done in                 3.4995E-02
+        oo reordering done in:       1.0000E-03s (All 2 core(s):1.0000E-03s)
+        oo factorization done in:    6.0000E-04s (All 2 core(s):0.0000E+00s)
+        oo backsubstitution done in: 2.0000E-04s (All 2 core(s):1.9990E-03s)
+        oo memory released in:       0.0000E+00s (All 2 core(s):0.0000E+00s)
+    -- Dual/adjoint problem done in           2.9990E-03
+    -- Gradient build in                      1.0000E-03
+    -- State vector and gradient created
+  ++ Elapsed time for this iteration on the master core:3.8200E-02s (All 2 core(s):3.8994E-02s)
+
+  ++ At L-BFGS-B iterate   20    f=  1.90993D-04    |proj g|=  5.72115D-09
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+ ## Source/lmain.f: Optimization terminated
+ ## Elapsed time for this step on the master core:1.4440E+00s (All 2 core(s):1.1748E+00s)
+ ## Total elapsed time on the master core:        1.4578E+00s (All 2 core(s):1.1788E+00s)

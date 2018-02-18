@@ -1,0 +1,19 @@
+ #This file helps checking about the convergence of the optimization algorithm
+ #    by printing infos related to the values of the objective function and
+ #    its components.
+ #- Every line describes an iteration of the optimization algorithm,
+ #- on every line there are x*2+2+4 real numbers where x equals the number
+ #    of measured fields used,
+ #- the first 2 numbers on a line are the dataMatch and the forceMatch terms
+ #    for the first measurement used,
+ #- if x>1, numbers at position 3 and 4 are the dataMatch and the forceMatch
+ #    terms for the second measurement
+ #- etc...
+ #- the following numbers are: the regularization term for each measurement
+ #    and the objective function value,
+ #- followed by the L2 norms of parameter1, its gradient, parameter2 and its
+ #    gradient.
+ #note by JFD: gnuplot is convenient to print a column
+ #             plot "*.out.cvg" u 3
+ #             replot "*.out.cvg" u 6
+  9.64866E-10  0.00000E+00  1.21339E+00  1.21338973395E+00  5.19615E+00  0.00000E+00  1.55885E+01  0.00000E+00

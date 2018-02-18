@@ -1,0 +1,162 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Mon Feb 18 19:37:12 2013
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ prefix for the output file ............   ss-2013-02-18.out
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve a forward problem: problemType=           2
+  
+ number of elements ....................         110
+ number of points    ...................         121
+ number of spatial dimensions...........           2
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           2
+ number of material types...............          11
+ max. number of properties per material.           8
+ number of measurements.................           1
+ max. num of nodes per bc set...........          40
+ tolerance for Newton iteration.........      1.0000E-11
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........          50
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          50
+ maximum number of fields to optimize...           2
+ nfStored=          10
+
+    LINEAR ELASTICITY(2D,2DOF)      
+    gauss pts/dir                              3
+    reg type(0/1/2:none/H1/TVD)               21
+    regularization parameter             0.100000E-04
+    extra parameter (TVD)                0.100000E-03
+    property set(1/2)                          2
+    flag for log element(0/1:off/on)           0
+    dimensional factor to scale lambda   0.200000E+01
+    dimensional factor to scale mu       0.100000E+01
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ boundary springs (2D, 2DOFs)
+ gauss pts/dir .........................           2
+ K_11....................................      0.0000E+00
+ K_12....................................      0.0000E+00
+ K_21....................................      0.0000E+00
+ K_22....................................      0.0000E+00
+ traction_1..............................      1.0000E-02
+ traction_2..............................      0.0000E+00
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:4.0000E-03s (All core(s):4.0000E-03s)
+ ## Total elapsed time on the master core:        4.0000E-03s (All core(s):8.0000E-03s)
+   ++ Running the forward code 
+    -- Initialize done on master core in           1.8771E+06s (All core(s) 8.0000E-03s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 1.5411E-01, increment(L2)= 3.0989E+00
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 2.2495E-15, increment(L2)= 2.6478E-15
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+ ## Source/lmain.f: Forward solve terminated
+ ## Elapsed time for this step on the master core:1.6000E-02s (All core(s):1.6001E-02s)
+ ## Total elapsed time on the master core:        2.0000E-02s (All core(s):2.4001E-02s)

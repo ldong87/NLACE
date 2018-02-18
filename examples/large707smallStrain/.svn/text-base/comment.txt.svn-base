@@ -1,0 +1,15 @@
+iterations: 4047  (CONVERGENCE: NORM OF PROJECTED GRADIENT (9.896D-17) <= PGTOL)
+regularization: off
+stabilization parameter: 1.0d0
+number of measured displacement fields: 2
+small strain: 0.2%
+small strain (horizontal): 0.2%
+optimization variables: mu varies (gamma fixed)
+displacement matching: only y displacement for vertical compression, only x for horizontal compression
+weighting: 
+small displacement: 1
+large displacement: 1
+f at 0 iteration    : 1.704D-09
+f at final iteration: 3.818D-16
+drop down by a factor of: 4.46306e+06
+

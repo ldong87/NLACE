@@ -1,0 +1,90 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Fri Sep  5 17:05:15 2014
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of elements ....................           7
+ number of points    ...................           8
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           3
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........           4
+ tolerance for Newton iteration.........      1.0000E-12
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ prefix for the output file ............   inverse.out
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve a forward problem: problemType=           2
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........        2000
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          10
+ maximum number of fields to optimize...           5
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      0.0000E+00
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................           1
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................           4
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:8.0000E-03s (All core(s):4.0000E-03s)
+ ## Total elapsed time on the master core:        8.0000E-03s (All core(s):2.0000E-02s)
+   ++ Running the forward code 
+    -- Initialize done on master core in           1.2018E+06s (All core(s) 2.0000E-02s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 5.2763E-01, increment(L2)= 2.8835E-02
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 6.3528E-04, increment(L2)= 2.7299E-05
+       Loading step (bc)=  1, Newton it.=  3, residual(L2)= 5.9315E-10, increment(L2)= 3.4064E-11
+       Loading step (bc)=  1, Newton it.=  4, residual(L2)= 1.4128E-13, increment(L2)= 3.6316E-15
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+ ## Source/lmain.f: Forward solve terminated
+ ## Elapsed time for this step on the master core:2.6600E-01s (All core(s):2.6002E-01s)
+ ## Total elapsed time on the master core:        2.7400E-01s (All core(s):2.8002E-01s)

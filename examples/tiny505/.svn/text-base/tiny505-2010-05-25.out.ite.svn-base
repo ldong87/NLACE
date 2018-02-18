@@ -1,0 +1,41 @@
+  RUNNING THE L-BFGS-B CODE
+
+it    = iteration number
+nf    = number of function evaluations
+nint  = number of segments explored during the Cauchy search
+nact  = number of active bounds at the generalized Cauchy point
+sub   = manner in which the subspace minimization terminated:
+        con = converged, bnd = a bound was reached
+itls  = number of iterations performed in the line search
+stepl = step length used
+tstep = norm of the displacement (total step)
+projg = norm of the projected gradient
+f     = function value
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =           88     M =           10
+
+   it   nf  nint  nact  sub  itls  stepl    tstep     projg        f
+    0    1     -     -   -     -     -        -     2.219D-11  1.441D-10
+    1    2     1     0  ---    0  1.0D+00  8.4D-11  2.219D-11  1.441D-10
+    2    3     1     0  con    0  1.0D+00  2.3D-02  2.254D-11  1.426D-10
+    3    4     1     0  bnd    0  1.0D+00  2.0D-01  2.330D-11  1.307D-10
+    4    5     8     8  bnd    0  1.0D+00  1.2D-01  1.150D-11  1.236D-10
+    5    6    12    20  bnd    0  1.0D+00  1.9D-01  1.211D-11  1.158D-10
+    6    7    11    30  bnd    0  1.0D+00  2.8D-01  1.688D-11  1.066D-10
+    7    8     3    32  bnd    0  1.0D+00  3.5D-01  1.093D-11  9.754D-11
+    8    9     5    33  bnd    0  1.0D+00  4.2D-01  8.664D-12  8.972D-11
+    9   10     6    33  bnd    0  1.0D+00  3.4D-01  7.630D-12  8.445D-11
+   10   11     2    27  bnd    0  1.0D+00  5.6D-01  8.184D-12  7.814D-11
+   11   12     4    25  bnd    0  1.0D+00  1.9D-01  7.643D-12  7.681D-11
+   12   13     4    23  bnd    0  1.0D+00  2.3D-01  6.917D-12  7.499D-11
+   13   14     3    23  bnd    0  1.0D+00  1.4D-01  8.777D-12  7.431D-11
+   14   15     2    20  con    0  1.0D+00  5.2D-01  7.953D-12  7.248D-11
+   15   17     3    20  con    1  4.5D-01  2.4D-01  4.271D-12  7.201D-11
+   16   18     2    16  con    0  1.0D+00  1.5D-01  4.140D-12  7.163D-11
+   17   19     5    15  con    0  1.0D+00  2.6D-01  5.842D-12  7.135D-11
+   18   20     5    13  bnd    0  1.0D+00  7.3D-02  9.304D-12  7.102D-11
+   19   21     1     9  bnd    0  1.0D+00  4.5D-02  5.154D-12  7.080D-11
+   20   22     4    10  con    0  1.0D+00  9.1D-02  4.448D-12  7.057D-11

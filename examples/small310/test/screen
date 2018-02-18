@@ -1,0 +1,145 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Fri Sep  5 08:58:02 2014
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of elements ....................          48
+ number of points    ...................          27
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............           9
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........           9
+ tolerance for Newton iteration.........      1.0000E-11
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ prefix for the output file ............   inverse.out
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve an inverse problem: problemType=           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........         200
+ value of m parameter in BFGS...........          10
+ results saved every x iterations ... x=          10
+ maximum number of fields to optimize...           5
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      0.0000E+00
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          13
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          11
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          11
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          15
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          13
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          17
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          17
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................          15
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           1
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:1.1000E-02s (All core(s):1.2001E-02s)
+ ## Total elapsed time on the master core:        1.1000E-02s (All core(s):2.8001E-02s)
+  
+  ++ Running the inverse code (optimization driver)
+  ++ L-BFGS-B selected
+  
+  ++ iteration X0: loading the material with  the initial guess of the state vector
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 8.1650E-01, increment(L2)= 9.7639E-02
+       Loading step (bc)=  1, Newton it.=  2, residual(L2)= 1.8471E-03, increment(L2)= 1.8580E-04
+       Loading step (bc)=  1, Newton it.=  3, residual(L2)= 7.6436E-09, increment(L2)= 9.2073E-10
+       Loading step (bc)=  1, Newton it.=  4, residual(L2)= 7.3685E-14, increment(L2)= 5.6207E-15
+    -- Primal problem done on master core in       5.6800E-01s (All core(s) 5.6404E-01s)
+    -- Dual/adjoint problem done on master core in 1.0000E-03s (All core(s) 0.0000E+00s)
+    -- Gradient built on master core in            1.0000E-03s (All core(s) 0.0000E+00s)
+   -- Objective function and gradient created, f=3.0640E-02 and ||g||_2=9.9884E+00
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:5.8200E-01s (All core(s):5.7204E-01s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+    -- Initialize done on master core in           1.0000E-03s (All core(s) 0.0000E+00s)
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1772E+02, increment(L2) = 9.7621E+01
+ elem305.f: Jacobian is negative at element           4   Jacob  -5.86461657845908018E-005  ... exiting

@@ -1,0 +1,59 @@
+#! /usr/local/bin/bash
+# This script calculates the gradient using the finite difference method
+
+#remove previous file with objective function values
+rm piVals *.out*
+
+#run inverse problem with initial guess unchanged.
+#copy value of objective function into file called piVals
+#/lore/dongl3/nlace_bu/NLACE/Exe/nlace.exe inverse.in
+#sed -n "19p" inverse.out.cvg | awk '{ print $4 }' > piVals
+rm -f *.out*
+
+#lnum="`awk '/datn/ {print FNR}' inverse.in | sed -n 2p`" 
+#let lnum=$lnum+2
+#lastLine="`grep femoptions -A2 inverse.in | tail -2 | awk '{ print $2 }'`" 
+#let lastLine=$lnum+$lastLine
+#let lastLine=$lastLine-4
+#let lnum=$lnum-1
+#let lastLine=$lastLine-1
+let lnum=219
+let lastLine=228
+echo $lnum
+echo $lastLine
+
+#change initial guess of phi by a small amount at every node and run inverse problem
+#copy the value of the objective function into a file called piVals.
+while [ $lnum -lt $lastLine ]; do
+	echo $lnum
+	sed -e "`expr $lnum`s/1       0.3300000000000/1       0.3300001000000/" inverse.in > tmp.in 
+	sed -e "`expr $lnum`s/1       0.3000000000000/1       0.3000001000000/" tmp.in > newInverse.in 
+	rm tmp.in
+    /lore/dongl3/nlace_bu/NLACE/Exe/nlace.exe newInverse.in
+	sed -n "19p" inverse.out.cvg | awk '{ print $4 }' >> piVals
+	rm -f *.out*
+	lnum=$((lnum+1))
+done
+
+#run inverse problem with initial guess unchanged.
+#copy value of objective function into file called piVals
+/lore/dongl3/nlace_bu/NLACE/Exe/nlace.exe inverse.in
+sed -n "19p" inverse.out.cvg | awk '{ print $4 }' >> piVals
+
+#create new .vtk file with gradients calculated with the FD method
+sed -n -e '1,/CELL_DATA/p' inverse.outi0.vtk > begtemp1
+sed  '$d' begtemp1 > begtemp2
+rm begtemp1
+sed -n -e '/CELL_DATA/,$p' inverse.outi0.vtk > endtemp
+echo  " SCALARS gradientFD float  1" > gFD
+echo LOOKUP_TABLE default >> gFD
+
+#run matlab script to calculate and store FD gradients in file called gradVals
+# FD means finite difference
+#matlab -nosplash -nodesktop "gradFD.m"
+"/usr/local/matlab/latest/bin/matlab" -nodisplay -nodesktop -r "gradFD, quit"
+#create the new .vtk file with the gradients computed using the FD method
+cat gradVals >> gFD
+
+cat begtemp2 gFD endtemp > newOut.vtk
+

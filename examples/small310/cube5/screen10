@@ -1,0 +1,1002 @@
+            ***************************************************
+            *                                                 *
+            *                                                 *
+            *                      NLACE                      *
+            *                                                 *
+            *            Non-Linear Adjoint-based             *
+            *             Coefficient Estimation              *
+            *                                                 *
+            *            version     : 1.01                   *
+            *            version date: Feb 2006               *
+            *                                                 *
+            ***************************************************
+
+  Thu Nov  6 21:43:18 2014
+
+ For more screen printing regarding reading the inputfile, check variable (datpr) in ldata.f
+ For more screen printing regarding pardiso, check variable (msglvl) in pardisosolve.f
+
+ The outputed files are: *.vtk (to load in paraview), *.res to restart the simulation,
+  *.ite and *.cvg to check the convergence of the optimization algorithm
+
+  
+ number of elements ....................         675
+ number of points    ...................         216
+ number of spatial dimensions...........           3
+ max. number of nodes per elem..........           4
+ max. number of dof per node............           4
+ number of material types...............          51
+ max. number of properties per material.          11
+ number of measurements.................           1
+ max. num of nodes per bc set...........          36
+ tolerance for Newton iteration.........      1.0000E-10
+ number of loadings.....................           1
+ number of incremental material steps...           1
+  
+ number of Cores used by the solver ....           1
+ inverting matrices with a direct method: pardiso
+  
+ Will solve an inverse problem: problemType=           1
+  
+ optimization (1/2/3:sd/bfgs/newton)....           2
+ maximum number of iterations...........         200
+ value of m parameter in BFGS...........          20
+ results saved every x iterations ... x=          50
+ maximum number of fields to optimize...           5
+ nfStored=          10
+
+ finite elasticity (3D,4DOF) 
+ gauss pts/dir .........................           4
+ reg type(0/1/2/4:none/H1/TVD/log, etc).           2
+ regularization parameter 1 ............      0.0000E+00
+ regularization parameter 2 ............      0.0000E+00
+ extra parameter (TVD) .................      1.0000E+00
+ extra parameter (TVD) .................      1.0000E-04
+ second extra parameter (TVD) ..........      1.0000E+00
+ second extra parameter (TVD) ..........      1.0000E+00
+ stabilization factor ..................      1.0000E+00
+ stabilization type (0/1:off/on) .......           1
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         145
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         152
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         152
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         147
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         147
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         154
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         154
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         149
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         149
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         156
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         157
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         152
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         152
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         159
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         159
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         154
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         154
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         161
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         161
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         156
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         157
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         164
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         164
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         159
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         159
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         166
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         166
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         161
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         161
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         168
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         169
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         164
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         164
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         171
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         171
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         166
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         166
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         173
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         173
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         168
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         169
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         176
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         176
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         171
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         171
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         178
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         178
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         173
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         173
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ Tractions as opt. vars.(3D,4DOF) 
+ gauss pts/dir .........................           3
+ interior node .........................         180
+ reg. param.  .......................      0.0000E+00
+ reg. type...........................           2
+
+
+ ## Source/lmain.f: Input file read & memory filled
+ ## Elapsed time for this step on the master core:1.5000E-02s (All core(s):8.0000E-03s)
+ ## Total elapsed time on the master core:        1.5000E-02s (All core(s):1.2000E-02s)
+  
+  ++ Running the inverse code (optimization driver)
+  ++ L-BFGS-B selected
+  
+  ++ iteration X0: loading the material with  the initial guess of the state vector
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         181
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         182
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         183
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         184
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         185
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         186
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         187
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         188
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         189
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         190
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         191
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         192
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         193
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         194
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         195
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         196
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         197
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         198
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         199
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         200
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         201
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         202
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         203
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         204
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         205
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         206
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         207
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         208
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         209
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         210
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         211
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         212
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         213
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         214
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         215
+ adata_nodal(iset, ipoin)=   0.0000000000000000       iset=           5  ipoin=         216
+    -- Initialize done on master core in           3.0000E-03s (All core(s) 0.0000E+00s)
+ !!!!!!!!!!forwardSolve is called!!!!!!!
+       Loading step (bc)=  1, Newton it.=  1, residual(L2)= 0.0000E+00, increment(L2)= 0.0000E+00
+    -- Primal problem done on master core in       4.7900E-01s (All core(s) 2.4802E-01s)
+    -- Dual/adjoint problem done on master core in 3.7000E-02s (All core(s) 1.2001E-02s)
+    -- Gradient built on master core in            2.5000E-02s (All core(s) 1.6001E-02s)
+   -- Objective function and gradient created, f=2.4816E+02 and ||g||_2=1.0777E+02
+ ---------------------
+ Post processor format: paraview
+ ---------------------
+  ++ Elapsed time for this iteration on the master core:5.7000E-01s (All core(s):2.8802E-01s)
+   
+  ++ iteration            0
+    -- Updating objective function and gradient,  1 measurements are used
+ adata_nodal(iset, ipoin)=   1.3183951166345356       iset=           5  ipoin=         181
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         182
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         183
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         184
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         185
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         186
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         187
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         188
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         189
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         190
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         191
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         192
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         193
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         194
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         195
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         196
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         197
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         198
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         199
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         200
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         201
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         202
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         203
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         204
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         205
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         206
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         207
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         208
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         209
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         210
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         211
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         212
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         213
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         214
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         215
+ adata_nodal(iset, ipoin)=   2.5000000000000000       iset=           5  ipoin=         216
+    -- Initialize done on master core in           2.0000E-03s (All core(s) 0.0000E+00s)
+ !!!!!!!!!!material conti is called!!!!!!!
+ factor2=   1.0000000000000000     
+   1.3183951166345356     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 4.7367E+01, increment(L2) = 3.2590E+01
+      Warning: Reducing the step length to allow convergence
+ factor2=  0.50000000000000000     
+  0.65919755831726778     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 2.3684E+01, increment(L2) = 1.6295E+01
+      Warning: Reducing the step length to allow convergence
+ factor2=  0.25000000000000000     
+  0.32959877915863389     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 1.1842E+01, increment(L2) = 8.1475E+00
+      Warning: Reducing the step length to allow convergence
+ factor2=  0.12500000000000000     
+  0.16479938957931695     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+  0.31250000000000000     
+       Loading step (mat):  1, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 4.0738E+00
+       Loading step (mat):  1, Newton it.:  2, residual(L2) = 2.1011E-01, increment(L2) = 1.2736E-01
+       Loading step (mat):  1, Newton it.:  3, residual(L2) = 2.9792E-04, increment(L2) = 2.0675E-04
+       Loading step (mat):  1, Newton it.:  4, residual(L2) = 5.7539E-10, increment(L2) = 1.0409E-09
+       Loading step (mat):  1, Newton it.:  5, residual(L2) = 5.1593E-14, increment(L2) = 6.9732E-15
+ factor2=  0.25000000000000000     
+  0.32959877915863389     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+  0.62500000000000000     
+       Loading step (mat):  2, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 3.8310E+00
+       Loading step (mat):  2, Newton it.:  2, residual(L2) = 2.3996E-01, increment(L2) = 1.4148E-01
+       Loading step (mat):  2, Newton it.:  3, residual(L2) = 4.6133E-04, increment(L2) = 3.1090E-04
+       Loading step (mat):  2, Newton it.:  4, residual(L2) = 1.6614E-09, increment(L2) = 1.4188E-09
+       Loading step (mat):  2, Newton it.:  5, residual(L2) = 5.2306E-14, increment(L2) = 8.1095E-15
+ factor2=  0.37500000000000000     
+  0.49439816873795084     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+  0.93750000000000000     
+       Loading step (mat):  3, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 3.5615E+00
+       Loading step (mat):  3, Newton it.:  2, residual(L2) = 2.6117E-01, increment(L2) = 1.4358E-01
+       Loading step (mat):  3, Newton it.:  3, residual(L2) = 5.9128E-04, increment(L2) = 4.0290E-04
+       Loading step (mat):  3, Newton it.:  4, residual(L2) = 2.9630E-09, increment(L2) = 4.5753E-09
+       Loading step (mat):  3, Newton it.:  5, residual(L2) = 5.6825E-14, increment(L2) = 5.6250E-15
+ factor2=  0.50000000000000000     
+  0.65919755831726778     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+   1.2500000000000000     
+       Loading step (mat):  4, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 3.2938E+00
+       Loading step (mat):  4, Newton it.:  2, residual(L2) = 2.7119E-01, increment(L2) = 1.3779E-01
+       Loading step (mat):  4, Newton it.:  3, residual(L2) = 6.5447E-04, increment(L2) = 5.4524E-04
+       Loading step (mat):  4, Newton it.:  4, residual(L2) = 4.6085E-09, increment(L2) = 1.0824E-08
+       Loading step (mat):  4, Newton it.:  5, residual(L2) = 6.8154E-14, increment(L2) = 1.0725E-14
+ factor2=  0.62500000000000000     
+  0.82399694789658473     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+   1.5625000000000000     
+       Loading step (mat):  5, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 3.0527E+00
+       Loading step (mat):  5, Newton it.:  2, residual(L2) = 2.7197E-01, increment(L2) = 1.3922E-01
+       Loading step (mat):  5, Newton it.:  3, residual(L2) = 6.7682E-04, increment(L2) = 1.0829E-03
+       Loading step (mat):  5, Newton it.:  4, residual(L2) = 2.3622E-08, increment(L2) = 2.5865E-08
+       Loading step (mat):  5, Newton it.:  5, residual(L2) = 6.8716E-14, increment(L2) = 1.6127E-14
+ factor2=  0.75000000000000000     
+  0.98879633747590168     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+   1.8750000000000000     
+       Loading step (mat):  6, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 2.8775E+00
+       Loading step (mat):  6, Newton it.:  2, residual(L2) = 2.6678E-01, increment(L2) = 2.6449E-01
+       Loading step (mat):  6, Newton it.:  3, residual(L2) = 2.4948E-03, increment(L2) = 4.1874E-03
+       Loading step (mat):  6, Newton it.:  4, residual(L2) = 3.9838E-07, increment(L2) = 8.8700E-07
+       Loading step (mat):  6, Newton it.:  5, residual(L2) = 8.3385E-14, increment(L2) = 4.2561E-14
+ factor2=  0.87500000000000000     
+   1.1535957270552186     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+   2.1875000000000000     
+       Loading step (mat):  7, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 2.9893E+00
+       Loading step (mat):  7, Newton it.:  2, residual(L2) = 2.6462E-01, increment(L2) = 2.0771E+00
+       Loading step (mat):  7, Newton it.:  3, residual(L2) = 1.7819E-01, increment(L2) = 1.8494E-01
+       Loading step (mat):  7, Newton it.:  4, residual(L2) = 1.6092E-03, increment(L2) = 2.0649E-02
+       Loading step (mat):  7, Newton it.:  5, residual(L2) = 1.8576E-05, increment(L2) = 5.1357E-05
+       Loading step (mat):  7, Newton it.:  6, residual(L2) = 1.1902E-10, increment(L2) = 7.7713E-10
+       Loading step (mat):  7, Newton it.:  7, residual(L2) = 8.5365E-14, increment(L2) = 1.1282E-13
+ factor2=   1.0000000000000000     
+   1.3183951166345356     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+   2.5000000000000000     
+       Loading step (mat):  8, Newton it.:  1, residual(L2) = 5.9209E+00, increment(L2) = 1.3117E+01
+       Loading step (mat):  8, Newton it.:  2, residual(L2) = 7.2676E+00, increment(L2) = 1.5645E+01
+       Loading step (mat):  8, Newton it.:  3, residual(L2) = 1.1192E+01, increment(L2) = 3.9599E+00
+      Warning: Reducing the step length to allow convergence
+ factor2=  0.93750000000000000     
+   1.2359954218448772     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+   2.3437500000000000     
+       Loading step (mat):  8, Newton it.:  1, residual(L2) = 2.9605E+00, increment(L2) = 6.5585E+00
+       Loading step (mat):  8, Newton it.:  2, residual(L2) = 1.7417E+00, increment(L2) = 9.9464E+00
+       Loading step (mat):  8, Newton it.:  3, residual(L2) = 4.5201E+00, increment(L2) = 2.4615E+00
+       Loading step (mat):  8, Newton it.:  4, residual(L2) = 3.1620E-01, increment(L2) = 1.9329E+02
+ elem305.f: Jacobian is negative at element          90   Jacob  -8.38639221947272973E-002  ... exiting

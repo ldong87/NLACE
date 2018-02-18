@@ -1,0 +1,13 @@
+iterations: 10000
+regularization: off
+stabilization parameter: 1.0d0
+number of measured displacement fields: 1
+large strain: 20%
+optimization variables: gamma varies (mu fixed at value computed at run06)
+displacement matching: only y displacement
+weighting: 
+large displacement: 1
+f at 0 iteration    : 2.493D-06
+f at final iteration: 4.666D-13
+drop down by a factor of: 5.3429e+06
+

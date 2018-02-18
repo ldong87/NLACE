@@ -1,0 +1,14 @@
+#!/bin/bash
+# Check to make sure that new output.vtk file is thesame as the reference results
+
+#define the input file and the reference .vtk file
+input="medium66.in"
+ref="medium66-2013-02-18.outi983.vtk"
+#run NLACE to generate new .vtk file
+../../Exe/nlace.exe $input
+#get the name of the new .vtk file created by NLACE
+outp="`ls -t *.vtk | head -1`"
+#compare the recently created .vtk file to the reference .vtk file
+diff $outp $ref
+#remove all recently created output files
+rm `echo $input | cut -d "." -f 1`.out*
